@@ -1,0 +1,32 @@
+# Build output
+_build/
+dist/
+# docs/_build/
+build/
+Thumbs.db
+.DS_Store
+
+# Sphinx cache and temporary files
+.doctrees
+.env/
+venv/
+.venv/
+.env*
+*.pyc
+__pycache__/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python packaging / virtualenv
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.log
+
+# Auto-generated API docs
+apidoc/
+api/
