@@ -18,6 +18,7 @@ Beispielanfragen und -antworten.
    agv_rest_api_common
    agv_rest_api_buzzer
    agv_rest_api_info
+   agv_rest_api_stepper
 
 
 .. Indizes und Tabellen
