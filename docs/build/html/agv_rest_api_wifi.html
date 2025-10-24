@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry-Points: WiFi &mdash; AGV-RestAPI-Doku 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Entry-Points: LED" href="agv_rest_api_led.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_pwm.html">Entry-Points: PWM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_led.html">Entry-Points: LED</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: WiFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wifi-settings-api-agv-wifi-getwifisettings">WiFi Settings – /api/agv/wifi/getWifiSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-active-wifi-mode-api-agv-wifi-setactivemode">Set Active WiFi Mode – /api/agv/wifi/setActiveMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-wifi-mode-data-api-agv-wifi-setmodedata">Set WiFi Mode Data – /api/agv/wifi/setModeData</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Entry-Points: WiFi</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_rest_api_wifi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-points-wifi">
+<h1>Entry-Points: WiFi<a class="headerlink" href="#entry-points-wifi" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
+</div>
+<p><strong>EntryPoints:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-api-agv-wifi-settings"><span class="std std-ref">GET /api/agv/wifi/getWifiSettings</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-wifi-setactivemode"><span class="std std-ref">POST /api/agv/wifi/setActiveMode</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-wifi-setmodedata"><span class="std std-ref">POST /api/agv/wifi/setModeData</span></a></p></li>
+</ul>
+<section id="wifi-settings-api-agv-wifi-getwifisettings">
+<span id="get-api-agv-wifi-settings"></span><h2>WiFi Settings – /api/agv/wifi/getWifiSettings<a class="headerlink" href="#wifi-settings-api-agv-wifi-getwifisettings" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-wifi-getWifiSettings">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/wifi/getWifiSettings</span></span><a class="headerlink" href="#get--api-agv-wifi-getWifiSettings" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert den aktiven WiFi-Modus und gespeicherte Zugangsdaten (AP, WiFi-01, WiFi-02).</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Einstellungen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Gibt den aktuell gesetzten WiFi-Modus sowie die aus dem NVS gespeicherten SSIDs und Passwörter
+für die Profile <strong>AP</strong>, <strong>wifi-01</strong> und <strong>wifi-02</strong> zurück.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;wifiMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi-01&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ap&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agv-ap&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;passwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ap-password&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;wifi_01&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;home-wifi&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;passwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-123&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;wifi_02&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lab-wifi&quot;</span><span class="p">,</span><span class="w">  </span><span class="nt">&quot;passwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lab-secret&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wifiMode</span></code> <em>(string)</em> – Aktiver Modus: <code class="docutils literal notranslate"><span class="pre">&quot;ap&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wifi-01&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;wifi-02&quot;</span></code>.</p></li>
+<li><p><strong>ap</strong> <em>(object)</em> – Zugangsdaten für Access-Point-Modus.
+- <code class="docutils literal notranslate"><span class="pre">ssid</span></code> <em>(string)</em>, <code class="docutils literal notranslate"><span class="pre">passwd</span></code> <em>(string)</em></p></li>
+<li><p><strong>wifi_01</strong> <em>(object)</em> – Zugangsdaten Profil 1.
+- <code class="docutils literal notranslate"><span class="pre">ssid</span></code> <em>(string)</em>, <code class="docutils literal notranslate"><span class="pre">passwd</span></code> <em>(string)</em></p></li>
+<li><p><strong>wifi_02</strong> <em>(object)</em> – Zugangsdaten Profil 2.
+- <code class="docutils literal notranslate"><span class="pre">ssid</span></code> <em>(string)</em>, <code class="docutils literal notranslate"><span class="pre">passwd</span></code> <em>(string)</em></p></li>
+</ul>
+</section>
+<section id="set-active-wifi-mode-api-agv-wifi-setactivemode">
+<span id="post-api-agv-wifi-setactivemode"></span><h2>Set Active WiFi Mode – /api/agv/wifi/setActiveMode<a class="headerlink" href="#set-active-wifi-mode-api-agv-wifi-setactivemode" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-wifi-setActiveMode">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/wifi/setActiveMode</span></span><a class="headerlink" href="#post--api-agv-wifi-setActiveMode" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt den aktiven WiFi-Modus.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>newMode</strong> (<em>string</em>) – Neuer Modus, einer von <code class="docutils literal notranslate"><span class="pre">&quot;ap&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wifi-01&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wifi-02&quot;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Modus erfolgreich gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Wert/Typ.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Zugriff verweigert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Aktiviert den angegebenen WiFi-Modus. Die Antwort spiegelt den tatsächlich gesetzten Modus wider.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;newMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi-02&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;newMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi-02&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The key &#39;newMode&#39; can only have the values &#39;ap&#39;, &#39;wifi-01&#39; or &#39;wifi-02&#39;.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-wifi-mode-data-api-agv-wifi-setmodedata">
+<span id="post-api-agv-wifi-setmodedata"></span><h2>Set WiFi Mode Data – /api/agv/wifi/setModeData<a class="headerlink" href="#set-wifi-mode-data-api-agv-wifi-setmodedata" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-wifi-setModeData">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/wifi/setModeData</span></span><a class="headerlink" href="#post--api-agv-wifi-setModeData" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Hinterlegt SSID und Passwort für ein WiFi-Profil (AP, wifi-01 oder wifi-02).</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>mode</strong> (<em>string</em>) – Zielprofil: <code class="docutils literal notranslate"><span class="pre">&quot;ap&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wifi-01&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wifi-02&quot;</span></code>.</p></li>
+<li><p><strong>ssid</strong> (<em>string</em>) – SSID (Länge 1..32 Zeichen).</p></li>
+<li><p><strong>passwd</strong> (<em>string</em>) – Passwort (Länge 8..63 Zeichen).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Zugangsdaten erfolgreich gespeichert.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Typen.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Zugriff verweigert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Speichert SSID und Passwort für das gewählte Profil im NVS. Die Antwort enthält die
+soeben gesetzten Werte.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi-01&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;home-wifi&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;passwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-123&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi-01&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;home-wifi&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;passwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-123&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The key &#39;mode&#39; can only have the values &#39;ap&#39;, &#39;wifi-01&#39; or &#39;wifi-02&#39;.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agv_rest_api_led.html" class="btn btn-neutral float-left" title="Entry-Points: LED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

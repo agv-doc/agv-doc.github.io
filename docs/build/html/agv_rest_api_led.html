@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry-Points: LED &mdash; AGV-RestAPI-Doku 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Entry-Points: PWM" href="agv_rest_api_pwm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_pwm.html">Entry-Points: PWM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: LED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#led-off-api-agv-led-off">LED Off – /api/agv/led/off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#led-on-api-agv-led-on">LED On – /api/agv/led/on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#led-flash-once-api-agv-led-flashonce">LED Flash Once – /api/agv/led/flashOnce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#led-flash-infinite-api-agv-led-flashinfinite">LED Flash Infinite – /api/agv/led/flashInfinite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#led-flash-n-times-api-agv-led-flashntimes">LED Flash N-times – /api/agv/led/flashNTimes</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Entry-Points: LED</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_rest_api_led.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-points-led">
+<h1>Entry-Points: LED<a class="headerlink" href="#entry-points-led" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
+</div>
+<p><strong>EntryPoints:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-api-agv-led-off"><span class="std std-ref">GET /api/agv/led/off</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-led-on"><span class="std std-ref">POST /api/agv/led/on</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-led-flashonce"><span class="std std-ref">POST /api/agv/led/flashOnce</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-led-flashinfinite"><span class="std std-ref">POST /api/agv/led/flashInfinite</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-led-flashntimes"><span class="std std-ref">POST /api/agv/led/flashNTimes</span></a></p></li>
+</ul>
+<section id="led-off-api-agv-led-off">
+<span id="get-api-agv-led-off"></span><h2>LED Off – /api/agv/led/off<a class="headerlink" href="#led-off-api-agv-led-off" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-led-off">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/led/off</span></span><a class="headerlink" href="#get--api-agv-led-off" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Schaltet die LED aus.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – LED ausgeschaltet.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Schaltet die LED sofort aus.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<p><em>leer</em></p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="led-on-api-agv-led-on">
+<span id="post-api-agv-led-on"></span><h2>LED On – /api/agv/led/on<a class="headerlink" href="#led-on-api-agv-led-on" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-led-on">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/led/on</span></span><a class="headerlink" href="#post--api-agv-led-on" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Schaltet die LED in einer bestimmten Farbe ein.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>color</strong> (<em>string</em>) – Eine der Farben <code class="docutils literal notranslate"><span class="pre">red</span></code>, <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">blue</span></code>, <code class="docutils literal notranslate"><span class="pre">yellow</span></code>, <code class="docutils literal notranslate"><span class="pre">magenta</span></code>, <code class="docutils literal notranslate"><span class="pre">cyan</span></code>, <code class="docutils literal notranslate"><span class="pre">white</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – LED eingeschaltet.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Wert/Typ.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Schaltet die LED dauerhaft in der angegebenen Farbe ein.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ledColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;color&#39; value must be one of the following: &#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;magenta&#39;, &#39;cyan&#39;, &#39;white&#39;.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="led-flash-once-api-agv-led-flashonce">
+<span id="post-api-agv-led-flashonce"></span><h2>LED Flash Once – /api/agv/led/flashOnce<a class="headerlink" href="#led-flash-once-api-agv-led-flashonce" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-led-flashOnce">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/led/flashOnce</span></span><a class="headerlink" href="#post--api-agv-led-flashOnce" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lässt die LED einmalig in der gewünschten Farbe für eine bestimmte Dauer leuchten.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>color</strong> (<em>string</em>) – Eine der Farben <code class="docutils literal notranslate"><span class="pre">red</span></code>, <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">blue</span></code>, <code class="docutils literal notranslate"><span class="pre">yellow</span></code>, <code class="docutils literal notranslate"><span class="pre">magenta</span></code>, <code class="docutils literal notranslate"><span class="pre">cyan</span></code>, <code class="docutils literal notranslate"><span class="pre">white</span></code>.</p></li>
+<li><p><strong>duration_ms</strong> (<em>int</em>) – Leuchtdauer in Millisekunden (&gt; 0).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Flash ausgeführt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Typen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Schaltet die LED für die angegebene Zeit ein und danach wieder aus.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">750</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">750</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;color&#39; value must be one of the following: &#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;magenta&#39;, &#39;cyan&#39;, &#39;white&#39;.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="led-flash-infinite-api-agv-led-flashinfinite">
+<span id="post-api-agv-led-flashinfinite"></span><h2>LED Flash Infinite – /api/agv/led/flashInfinite<a class="headerlink" href="#led-flash-infinite-api-agv-led-flashinfinite" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-led-flashInfinite">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/led/flashInfinite</span></span><a class="headerlink" href="#post--api-agv-led-flashInfinite" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lässt die LED unbegrenzt mit einer bestimmten Frequenz blinken.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>color</strong> (<em>string</em>) – Eine der Farben <code class="docutils literal notranslate"><span class="pre">red</span></code>, <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">blue</span></code>, <code class="docutils literal notranslate"><span class="pre">yellow</span></code>, <code class="docutils literal notranslate"><span class="pre">magenta</span></code>, <code class="docutils literal notranslate"><span class="pre">cyan</span></code>, <code class="docutils literal notranslate"><span class="pre">white</span></code>.</p></li>
+<li><p><strong>flashFrequency_Hz</strong> (<em>float</em>) – Blinkfrequenz in Hz (<code class="docutils literal notranslate"><span class="pre">LED_MIN_FREQUENCY</span></code>..``LED_MAX_FREQUENCY``).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Blinksequenz gestartet.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Typen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Startet ein endloses Blinken in der gewählten Farbe und Frequenz.
+Zum Stoppen kann z. B. <a class="reference internal" href="#get-api-agv-led-off"><span class="std std-ref">/api/agv/led/off</span></a> genutzt werden.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;flashFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;flashFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;flashFrequency_Hz&#39; value must be between LED_MIN_FREQUENCY and LED_MAX_FREQUENCY Hz.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="led-flash-n-times-api-agv-led-flashntimes">
+<span id="post-api-agv-led-flashntimes"></span><h2>LED Flash N-times – /api/agv/led/flashNTimes<a class="headerlink" href="#led-flash-n-times-api-agv-led-flashntimes" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-led-flashNTimes">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/led/flashNTimes</span></span><a class="headerlink" href="#post--api-agv-led-flashNTimes" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lässt die LED eine endliche Anzahl von Malen blinken.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>flashFrequency_Hz</strong> (<em>int</em>) – Blinkfrequenz in Hz (<code class="docutils literal notranslate"><span class="pre">LED_MIN_FREQUENCY</span></code>..``LED_MAX_FREQUENCY``).</p></li>
+<li><p><strong>numOfFlashes</strong> (<em>int</em>) – Anzahl der Blinkvorgänge (&gt; 0).</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – Eine der Farben <code class="docutils literal notranslate"><span class="pre">red</span></code>, <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">blue</span></code>, <code class="docutils literal notranslate"><span class="pre">yellow</span></code>, <code class="docutils literal notranslate"><span class="pre">magenta</span></code>, <code class="docutils literal notranslate"><span class="pre">cyan</span></code>, <code class="docutils literal notranslate"><span class="pre">white</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Blinksequenz gestartet.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Typen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Blinkt die LED genau <code class="docutils literal notranslate"><span class="pre">numOfFlashes</span></code>-mal in der angegebenen Farbe mit der gewünschten Frequenz.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;flashFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;numOfFlashes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;magenta&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;flashFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;numOfFlashes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;magenta&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;flashFrequency_Hz&#39; value must be between LED_MIN_FREQUENCY and LED_MAX_FREQUENCY Hz.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agv_rest_api_pwm.html" class="btn btn-neutral float-left" title="Entry-Points: PWM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

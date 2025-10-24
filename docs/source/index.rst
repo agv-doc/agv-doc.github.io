@@ -19,6 +19,11 @@ Beispielanfragen und -antworten.
    agv_rest_api_buzzer
    agv_rest_api_info
    agv_rest_api_stepper
+   agv_rest_api_pwm
+   agv_rest_api_led
+   agv_rest_api_wifi
+   agv_rest_api_wima
+   agv_rest_api_nve
 
 
 .. Indizes und Tabellen

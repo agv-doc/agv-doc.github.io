@@ -53,6 +53,11 @@
 <li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_pwm.html">Entry-Points: PWM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_led.html">Entry-Points: LED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wifi.html">Entry-Points: WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wima.html">Entry-Points: WhereIsMyAGV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_nve.html">Entry-Points: NVS (Non-Volatile Storage)</a></li>
 </ul>
 
         </div>
@@ -102,6 +107,16 @@
      <tr>
        <td></td>
        <td>
+       <a href="agv_rest_api_led.html#get--api-agv-led-off"><code class="xref">GET /api/agv/led/off</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#get--api-agv-pwm-settings"><code class="xref">GET /api/agv/pwm/settings</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
        <a href="agv_rest_api_stepper.html#get--api-agv-stepper-abortMotion"><code class="xref">GET /api/agv/stepper/abortMotion</code></a></td><td>
        <em></em></td></tr>
      <tr>
@@ -132,6 +147,16 @@
      <tr>
        <td></td>
        <td>
+       <a href="agv_rest_api_wima.html#get--api-agv-whereIsMyAGV-status"><code class="xref">GET /api/agv/whereIsMyAGV/status</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_wifi.html#get--api-agv-wifi-getWifiSettings"><code class="xref">GET /api/agv/wifi/getWifiSettings</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
        <a href="agv_rest_api_info.html#get--api-info-agv"><code class="xref">GET /api/info/agv</code></a></td><td>
        <em></em></td></tr>
      <tr>
@@ -148,6 +173,11 @@
        <td></td>
        <td>
        <a href="agv_rest_api_info.html#get--api-info-esp32-partitions"><code class="xref">GET /api/info/esp32/partitions</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_nve.html#get--api-nve-namespaces"><code class="xref">GET /api/nve/namespaces</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
@@ -178,6 +208,56 @@
        <td></td>
        <td>
        <a href="agv_rest_api_common.html#post--api-agv-common-restart"><code class="xref">POST /api/agv/common/restart</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_led.html#post--api-agv-led-flashInfinite"><code class="xref">POST /api/agv/led/flashInfinite</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_led.html#post--api-agv-led-flashNTimes"><code class="xref">POST /api/agv/led/flashNTimes</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_led.html#post--api-agv-led-flashOnce"><code class="xref">POST /api/agv/led/flashOnce</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_led.html#post--api-agv-led-on"><code class="xref">POST /api/agv/led/on</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#post--api-agv-pwm-channel-setFullSweepTime"><code class="xref">POST /api/agv/pwm/channel/setFullSweepTime</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#post--api-agv-pwm-channel-setLimits"><code class="xref">POST /api/agv/pwm/channel/setLimits</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#post--api-agv-pwm-channel-setPosition"><code class="xref">POST /api/agv/pwm/channel/setPosition</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#post--api-agv-pwm-channel-setStartPosition"><code class="xref">POST /api/agv/pwm/channel/setStartPosition</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#post--api-agv-pwm-enable"><code class="xref">POST /api/agv/pwm/enable</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_pwm.html#post--api-agv-pwm-setActiveServos"><code class="xref">POST /api/agv/pwm/setActiveServos</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
@@ -213,6 +293,31 @@
        <td></td>
        <td>
        <a href="agv_rest_api_stepper.html#post--api-agv-stepper-setVelocitySingle"><code class="xref">POST /api/agv/stepper/setVelocitySingle</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_wima.html#post--api-agv-whereIsMyAGV-enable"><code class="xref">POST /api/agv/whereIsMyAGV/enable</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_wima.html#post--api-agv-whereIsMyAGV-settings"><code class="xref">POST /api/agv/whereIsMyAGV/settings</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_wifi.html#post--api-agv-wifi-setActiveMode"><code class="xref">POST /api/agv/wifi/setActiveMode</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_wifi.html#post--api-agv-wifi-setModeData"><code class="xref">POST /api/agv/wifi/setModeData</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="agv_rest_api_nve.html#post--api-nve-listKeysAndValues"><code class="xref">POST /api/nve/listKeysAndValues</code></a></td><td>
        <em></em></td></tr>
    </table>
 

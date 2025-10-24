@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry-Points: PWM &mdash; AGV-RestAPI-Doku 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Entry-Points: Stepper" href="agv_rest_api_stepper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: PWM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pwm-settings-api-agv-pwm-settings">PWM Settings – /api/agv/pwm/settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pwm-enable-api-agv-pwm-enable">PWM Enable – /api/agv/pwm/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-active-servos-api-agv-pwm-setactiveservos">Set Active Servos – /api/agv/pwm/setActiveServos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-channel-position-api-agv-pwm-channel-setposition">Set Channel Position – /api/agv/pwm/channel/setPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-channel-limits-api-agv-pwm-channel-setlimits">Set Channel Limits – /api/agv/pwm/channel/setLimits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-channel-start-position-api-agv-pwm-channel-setstartposition">Set Channel Start Position – /api/agv/pwm/channel/setStartPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-channel-full-sweep-time-api-agv-pwm-channel-setfullsweeptime">Set Channel Full Sweep Time – /api/agv/pwm/channel/setFullSweepTime</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Entry-Points: PWM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_rest_api_pwm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-points-pwm">
+<h1>Entry-Points: PWM<a class="headerlink" href="#entry-points-pwm" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
+</div>
+<p><strong>EntryPoints:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-api-agv-pwm-settings"><span class="std std-ref">GET /api/agv/pwm/settings</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-pwm-enable"><span class="std std-ref">POST /api/agv/pwm/enable</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-pwm-setactiveservos"><span class="std std-ref">POST /api/agv/pwm/setActiveServos</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-pwm-channel-setposition"><span class="std std-ref">POST /api/agv/pwm/channel/setPosition</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-pwm-channel-setlimits"><span class="std std-ref">POST /api/agv/pwm/channel/setLimits</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-pwm-channel-setstartposition"><span class="std std-ref">POST /api/agv/pwm/channel/setStartPosition</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-pwm-channel-setfullsweeptime"><span class="std std-ref">POST /api/agv/pwm/channel/setFullSweepTime</span></a></p></li>
+</ul>
+<section id="pwm-settings-api-agv-pwm-settings">
+<span id="get-api-agv-pwm-settings"></span><h2>PWM Settings – /api/agv/pwm/settings<a class="headerlink" href="#pwm-settings-api-agv-pwm-settings" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-pwm-settings">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/settings</span></span><a class="headerlink" href="#get--api-agv-pwm-settings" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert den aktuellen PWM-Status, Limits und Kanal-Einstellungen.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Einstellungen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Gibt den PWM-Gesamtstatus (aktiviert, Anzahl aktiver Servos, Maximalanzahl), Default-Werte, globale Limits
+sowie eine Liste der aktiven Servo-Kanäle mit deren Limits/Positionen und <cite>fullSweepTime_ms</cite> zurück.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;activeServos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;maxServos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;servoDefaults&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;fullSweepTime_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;limits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;minPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;maxPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;min_fullSweepTime_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;max_fullSweepTime_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;servos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;currentPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;fullSweepTime_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enabled</span></code> <em>(bool)</em> – PWM-Modul aktiv.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">activeServos</span></code> <em>(int)</em> – Anzahl aktuell aktiver Servo-Kanäle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxServos</span></code> <em>(int)</em> – Maximale Kanalanzahl (Konstante <cite>SERVO_MAX_CHANNELS</cite>).</p></li>
+<li><dl class="simple">
+<dt><strong>servoDefaults</strong> <em>(object)</em> – Standardwerte für neue/Reset-Konfiguration:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">min</span></code> <em>(int)</em> – Standard-Minimalpuls.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max</span></code> <em>(int)</em> – Standard-Maximalpuls.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startPos</span></code> <em>(int)</em> – Standard-Startposition (Grad).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fullSweepTime_ms</span></code> <em>(int)</em> – Standard-Zeit für 0↔180°-Vollausschlag.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>limits</strong> <em>(object)</em> – Globale Grenzen:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">minPos</span></code> <em>(int)</em> – Minimal erlaubte Gradposition (<cite>SERVO_MIN_LIMIT</cite>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxPos</span></code> <em>(int)</em> – Maximal erlaubte Gradposition (<cite>SERVO_MAX_LIMIT</cite>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_fullSweepTime_ms</span></code> <em>(int)</em> – Minimal erlaubte Vollausschlag-Zeit (ms).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_fullSweepTime_ms</span></code> <em>(int)</em> – Maximal erlaubte Vollausschlag-Zeit (ms).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>servos</strong> <em>(array)</em> – Liste aktiver Kanäle mit individuellen Werten:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> <em>(int)</em> – Kanalindex.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min</span></code> <em>(int)</em>, <code class="docutils literal notranslate"><span class="pre">max</span></code> <em>(int)</em> – Kanalbezogene Pulsgrenzen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startPos</span></code> <em>(int)</em> – Startposition in Grad.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">currentPos</span></code> <em>(int)</em> – Aktuelle Position in Grad.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fullSweepTime_ms</span></code> <em>(int)</em> – Vollausschlag-Zeit in ms.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="pwm-enable-api-agv-pwm-enable">
+<span id="post-api-agv-pwm-enable"></span><h2>PWM Enable – /api/agv/pwm/enable<a class="headerlink" href="#pwm-enable-api-agv-pwm-enable" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-pwm-enable">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/enable</span></span><a class="headerlink" href="#post--api-agv-pwm-enable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Aktiviert oder deaktiviert das PWM-Modul.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>enable</strong> (<em>bool</em>) – <cite>true</cite> zum Aktivieren, <cite>false</cite> zum Deaktivieren.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Status erfolgreich gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Datentyp im Request.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Schaltet das PWM-Modul ein/aus. Die Antwort spiegelt den aktuellen Zustand wider.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;enable&#39; key must be of type bool.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-active-servos-api-agv-pwm-setactiveservos">
+<span id="post-api-agv-pwm-setactiveservos"></span><h2>Set Active Servos – /api/agv/pwm/setActiveServos<a class="headerlink" href="#set-active-servos-api-agv-pwm-setactiveservos" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-pwm-setActiveServos">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/setActiveServos</span></span><a class="headerlink" href="#post--api-agv-pwm-setActiveServos" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt die Anzahl der aktiven Servo-Kanäle.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>activeServos</strong> (<em>int</em>) – Anzahl aktiver Kanäle (1..`SERVO_MAX_CHANNELS`).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Anzahl erfolgreich gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Wert/Typ.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – PWM-Modul ist nicht aktiviert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Setzt die Zahl der nutzbaren Kanäle. Erfordert aktiviertes PWM-Modul.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;activeServos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;activeServos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-channel-position-api-agv-pwm-channel-setposition">
+<span id="post-api-agv-pwm-channel-setposition"></span><h2>Set Channel Position – /api/agv/pwm/channel/setPosition<a class="headerlink" href="#set-channel-position-api-agv-pwm-channel-setposition" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-pwm-channel-setPosition">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/channel/setPosition</span></span><a class="headerlink" href="#post--api-agv-pwm-channel-setPosition" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt die Position eines Servo-Kanals (Grad).</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>channel</strong> (<em>int</em>) – Kanalindex (0..`activeServos-1`).</p></li>
+<li><p><strong>newPosition</strong> (<em>int</em>) – Zielposition in Grad (0..180). Wird innerhalb der Kanal-Limits geklemmt.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Position gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Typen oder Bereichsverletzung.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – PWM-Modul ist nicht aktiviert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Setzt die Zielposition. Liegt <cite>newPosition</cite> außerhalb der kanalbezogenen Limits, wird sie auf den erlaubten Bereich
+geklemmt. Die Antwort enthält <cite>coerced=true</cite>, wenn korrigiert wurde.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;newPosition&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;newPosition&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;coerced&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-channel-limits-api-agv-pwm-channel-setlimits">
+<span id="post-api-agv-pwm-channel-setlimits"></span><h2>Set Channel Limits – /api/agv/pwm/channel/setLimits<a class="headerlink" href="#set-channel-limits-api-agv-pwm-channel-setlimits" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-pwm-channel-setLimits">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/channel/setLimits</span></span><a class="headerlink" href="#post--api-agv-pwm-channel-setLimits" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt Min-/Max-Grenzen eines Servo-Kanals (Grad).</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>channel</strong> (<em>int</em>) – Kanalindex (0..`activeServos-1`).</p></li>
+<li><p><strong>min</strong> (<em>int</em>) – Untere Positionsgrenze (<code class="docutils literal notranslate"><span class="pre">SERVO_MIN_LIMIT</span></code>..``SERVO_MAX_LIMIT``).</p></li>
+<li><p><strong>max</strong> (<em>int</em>) – Obere Positionsgrenze (<code class="docutils literal notranslate"><span class="pre">SERVO_MIN_LIMIT</span></code>..``SERVO_MAX_LIMIT``, &gt; <code class="docutils literal notranslate"><span class="pre">min</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Limits gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Bereiche.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – PWM-Modul ist nicht aktiviert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Setzt die Positionsgrenzen des Kanals. Falls die bisherige <cite>startPos</cite> außerhalb der neuen Grenzen liegt,
+wird sie in den Bereich gezwungen. Die Antwort enthält <cite>coerced_startPos=true</cite>, wenn eine Korrektur erfolgte.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">170</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;coerced_startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-channel-start-position-api-agv-pwm-channel-setstartposition">
+<span id="post-api-agv-pwm-channel-setstartposition"></span><h2>Set Channel Start Position – /api/agv/pwm/channel/setStartPosition<a class="headerlink" href="#set-channel-start-position-api-agv-pwm-channel-setstartposition" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-pwm-channel-setStartPosition">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/channel/setStartPosition</span></span><a class="headerlink" href="#post--api-agv-pwm-channel-setStartPosition" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt die Startposition eines Servo-Kanals (Grad).</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>channel</strong> (<em>int</em>) – Kanalindex (0..`activeServos-1`).</p></li>
+<li><p><strong>startPos</strong> (<em>int</em>) – Startposition in Grad (innerhalb der kanalbezogenen Limits).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Startposition gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Bereiche.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – PWM-Modul ist nicht aktiviert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Legt die Startposition fest. Der Wert muss zwischen den aktuellen Kanal-Limits liegen.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-channel-full-sweep-time-api-agv-pwm-channel-setfullsweeptime">
+<span id="post-api-agv-pwm-channel-setfullsweeptime"></span><h2>Set Channel Full Sweep Time – /api/agv/pwm/channel/setFullSweepTime<a class="headerlink" href="#set-channel-full-sweep-time-api-agv-pwm-channel-setfullsweeptime" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-pwm-channel-setFullSweepTime">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/pwm/channel/setFullSweepTime</span></span><a class="headerlink" href="#post--api-agv-pwm-channel-setFullSweepTime" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt die Vollausschlag-Zeit (0↔180°) eines Servo-Kanals in Millisekunden.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>channel</strong> (<em>int</em>) – Kanalindex (0..`activeServos-1`).</p></li>
+<li><p><strong>fullSweepTime_ms</strong> (<em>int</em>) – Vollausschlag-Zeit in ms (<code class="docutils literal notranslate"><span class="pre">SERVO_MIN_FULL_SWEEP_TIME_MS</span></code>..``SERVO_MAX_FULL_SWEEP_TIME_MS``).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Zeit gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Werte/Bereiche.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – PWM-Modul ist nicht aktiviert.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Konfiguriert, wie lange der Servo von 0° auf 180° (bzw. umgekehrt) benötigt.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fullSweepTime_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;fullSweepTime_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agv_rest_api_stepper.html" class="btn btn-neutral float-left" title="Entry-Points: Stepper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
