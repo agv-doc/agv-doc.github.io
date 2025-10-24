@@ -26,13 +26,32 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install sphinx
+          python -m pip install -U pip setuptools wheel
+          # Root-Requirements (du sagtest: ./requirements.txt)
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+          # Falls Sphinx nicht in requirements.txt steht:
+          python -m pip install sphinx
+          # Häufig benötigte Extras – ungefährlich, falls nicht genutzt:
+          python -m pip install myst-parser sphinx-rtd-theme
 
-      - name: Build Sphinx site
+      - name: Sanity check doc/ exists and conf.py
         run: |
-          sphinx-build -b html doc _site
+          echo "Repo root:"
+          ls -la
+          echo "doc/ directory:"
+          ls -la doc || true
+          test -f doc/conf.py || (echo "::error file=doc/conf.py::conf.py fehlt in doc/"; exit 2)
+
+      - name: Build Sphinx site (verbose, full traceback)
+        env:
+          SPHINXOPTS: "-T -E -a -N"   # -T: Traceback, -E: keine Caches, -a: alle neu bauen, -N: no color
+        run: |
+          python -m sphinx -b html doc _site $SPHINXOPTS
+          # GitHub Pages braucht das:
           touch _site/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
