@@ -18,18 +18,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ensure .nojekyll
+      # (1) Falls du lokal gebaut hast: Stelle sicher, dass der Output existiert
+      - name: Ensure prebuilt site exists
         run: |
+          test -f docs/build/html/index.html || (echo "::error::docs/build/html fehlt oder kein index.html"; exit 2)
+          # wichtig für _static/_sources:
           touch docs/build/html/.nojekyll
 
-      - name: Configure Pages
+      # (2) Pages einschalten (falls noch aus) – das behebt dein 404
+      - name: Configure Pages (auto-enable)
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/build/html
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
