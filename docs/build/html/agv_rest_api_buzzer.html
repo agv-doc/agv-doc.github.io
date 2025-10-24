@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry-Points: Buzzer &mdash; AGV-RestAPI-Doku 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Entry-Points: Common" href="agv_rest_api_common.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: Buzzer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#buzzer-off-api-agv-buzzer-off">Buzzer Off - /api/agv/buzzer/off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#buzzer-on-api-agv-buzzer-on">Buzzer On - /api/agv/buzzer/on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beep-once-api-agv-buzzer-beeponce">Beep Once - /api/agv/buzzer/beepOnce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beep-infinite-api-agv-buzzer-beepinfinite">Beep Infinite - /api/agv/buzzer/beepInfinite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beep-n-times-api-agv-buzzer-beepntimes">Beep N-times - /api/agv/buzzer/beepNTimes</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Entry-Points: Buzzer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_rest_api_buzzer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-points-buzzer">
+<h1>Entry-Points: Buzzer<a class="headerlink" href="#entry-points-buzzer" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
+</div>
+<p><strong>EntryPoints:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-api-agv-buzzer-off"><span class="std std-ref">GET /api/agv/buzzer/off</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-buzzer-on"><span class="std std-ref">POST /api/agv/buzzer/on</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-buzzer-beeponce"><span class="std std-ref">POST /api/agv/buzzer/beepOnce</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-buzzer-beepinfinite"><span class="std std-ref">POST /api/agv/buzzer/beepInfinite</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-buzzer-beepntimes"><span class="std std-ref">POST /api/agv/buzzer/beepNTimes</span></a></p></li>
+</ul>
+<section id="buzzer-off-api-agv-buzzer-off">
+<span id="get-api-agv-buzzer-off"></span><h2>Buzzer Off - /api/agv/buzzer/off<a class="headerlink" href="#buzzer-off-api-agv-buzzer-off" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-buzzer-off">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/buzzer/off</span></span><a class="headerlink" href="#get--api-agv-buzzer-off" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Schaltet den Buzzer aus.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Buzzer wurde erfolgreich ausgeschaltet.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Anfrageparameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Schaltet den Buzzer aus und beendet alle aktiven Töne.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code> <em>(string)</em> – Aktueller Zustand des Buzzers (<code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>).</p></li>
+</ul>
+</section>
+<section id="buzzer-on-api-agv-buzzer-on">
+<span id="post-api-agv-buzzer-on"></span><h2>Buzzer On - /api/agv/buzzer/on<a class="headerlink" href="#buzzer-on-api-agv-buzzer-on" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-buzzer-on">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/buzzer/on</span></span><a class="headerlink" href="#post--api-agv-buzzer-on" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Schaltet den Buzzer ein.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>toneFrequency_Hz</strong> (<em>int</em>) – Tonfrequenz in Hz.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Buzzer wurde erfolgreich eingeschaltet.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Anfrageparameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Schaltet den Buzzer ein und aktiviert einen Dauerton mit der angegebenen Frequenz.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``):</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">toneFrequency_Hz</span></code> <em>(integer)</em> – Tatsächlich aktivierte Frequenz des Buzzers in Hertz.</p></li>
+</ul>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;toneFrequency_Hz&#39; value must be between 200 and 2000 Hz.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="beep-once-api-agv-buzzer-beeponce">
+<span id="post-api-agv-buzzer-beeponce"></span><h2>Beep Once - /api/agv/buzzer/beepOnce<a class="headerlink" href="#beep-once-api-agv-buzzer-beeponce" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-buzzer-beepOnce">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/buzzer/beepOnce</span></span><a class="headerlink" href="#post--api-agv-buzzer-beepOnce" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Löst einen einzelnen Piepton aus.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>toneFrequency_Hz</strong> (<em>int</em>) – Tonfrequenz in Hz.</p></li>
+<li><p><strong>duration_ms</strong> (<em>int</em>) – Tondauer in Millisekunden.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Piepton ausgelöst.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Anfrageparameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Löst einen einzelnen Piepton mit der angegebenen Frequenz für die angegebene Dauer aus.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;toneFrequency_Hz&#39; value must be between 200 and 2000 Hz.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="beep-infinite-api-agv-buzzer-beepinfinite">
+<span id="post-api-agv-buzzer-beepinfinite"></span><h2>Beep Infinite - /api/agv/buzzer/beepInfinite<a class="headerlink" href="#beep-infinite-api-agv-buzzer-beepinfinite" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-buzzer-beepInfinite">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/buzzer/beepInfinite</span></span><a class="headerlink" href="#post--api-agv-buzzer-beepInfinite" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Löst ein dauerhaftes Piepen aus (Stop per <code class="docutils literal notranslate"><span class="pre">/off</span></code>).</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>toneFrequency_Hz</strong> (<em>int</em>) – Tonfrequenz in Hz.</p></li>
+<li><p><strong>beepFrequency_Hz</strong> (<em>float</em>) – Piepton-Frequenz in Hz (Beep-Zyklen pro Sekunde).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Dauerpiepen gestartet.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Anfrageparameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Startet ein dauerhaftes Piepen mit der angegebenen Frequenz, das erst durch <code class="docutils literal notranslate"><span class="pre">/off</span></code> beendet wird.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;beepFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;beepFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">toneFrequency_Hz</span></code> <em>(integer)</em> – Tatsächlich aktivierte Frequenz des Buzzers in Hertz.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beepFrequency_Hz</span></code> <em>(float)</em> – Tatsächlich aktivierte Piepton-Frequenz in Hz.</p></li>
+</ul>
+</section>
+<section id="beep-n-times-api-agv-buzzer-beepntimes">
+<span id="post-api-agv-buzzer-beepntimes"></span><h2>Beep N-times - /api/agv/buzzer/beepNTimes<a class="headerlink" href="#beep-n-times-api-agv-buzzer-beepntimes" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-buzzer-beepNTimes">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/buzzer/beepNTimes</span></span><a class="headerlink" href="#post--api-agv-buzzer-beepNTimes" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Löst mehrere Pieptöne hintereinander aus.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>numOfBeeps</strong> (<em>int</em>) – Anzahl der Pieptöne.</p></li>
+<li><p><strong>toneFrequency_Hz</strong> (<em>int</em>) – Tonfrequenz in Hz.</p></li>
+<li><p><strong>beepFrequency_Hz</strong> (<em>int</em>) – Piepton-Frequenz in Hz (Beep-Zyklen pro Sekunde).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Sequenz ausgelöst.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültige Anfrageparameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Löst mehrere Pieptöne hintereinander aus.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;beepFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;numOfBeeps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;toneFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;beepFrequency_Hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;numOfBeeps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agv_rest_api_common.html" class="btn btn-neutral float-left" title="Entry-Points: Common" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

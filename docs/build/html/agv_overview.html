@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGV – REST API Dokumentation &mdash; AGV-RestAPI-Doku 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Entry-Points: Common" href="agv_rest_api_common.html" />
+    <link rel="prev" title="AGV-Doku – Übersicht" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AGV – REST API Dokumentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#allgemeines">Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-level-felder-der-api-antworten">Top-Level-Felder der API-Antworten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antwortmodelle">Antwortmodelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#konventionen-fur-requests">Konventionen für Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AGV – REST API Dokumentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="agv-rest-api-dokumentation">
+<h1>AGV – REST API Dokumentation<a class="headerlink" href="#agv-rest-api-dokumentation" title="Link to this heading"></a></h1>
+<section id="allgemeines">
+<h2>Allgemeines<a class="headerlink" href="#allgemeines" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>API-Version:</strong> 1.0</p></li>
+<li><p><strong>Created:</strong> Okt. 2025</p></li>
+<li><p><strong>Author:</strong> Robert Berger</p></li>
+<li><p><strong>Protokoll:</strong> HTTP</p></li>
+<li><p><strong>Datenformat:</strong> Alle <strong>Requests</strong> (bei POST/PUT/PATCH) und <strong>Responses</strong> verwenden <strong>JSON</strong></p></li>
+<li><p><strong>Zeichensatz:</strong> UTF-8</p></li>
+<li><p><strong>Content-Type:</strong> <code class="docutils literal notranslate"><span class="pre">application/json;</span> <span class="pre">charset=utf-8</span></code></p></li>
+<li><p><strong>Fehlermodell:</strong> Einheitliches Fehlerobjekt (siehe unten)</p></li>
+<li><p><strong>Lokalisierung:</strong> Fehlermeldungen standardmäßig Englisch</p></li>
+</ul>
+</section>
+<section id="top-level-felder-der-api-antworten">
+<h2>Top-Level-Felder der API-Antworten<a class="headerlink" href="#top-level-felder-der-api-antworten" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code> <em>(number)</em> – numerischer API-Statuscode (z. B. <code class="docutils literal notranslate"><span class="pre">200</span></code>, <code class="docutils literal notranslate"><span class="pre">400</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code> <em>(string)</em> – <code class="docutils literal notranslate"><span class="pre">&quot;success&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> <em>(object, optional)</em> – Nutzlast bei <strong>Erfolg</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">details</span></code> <em>(object, optional)</em> – Zusatzinfos bei <strong>Fehlern</strong></p></li>
+</ul>
+<p>Genau <strong>eines</strong> der Felder <code class="docutils literal notranslate"><span class="pre">data</span></code> <strong>oder</strong> <code class="docutils literal notranslate"><span class="pre">details</span></code> ist in einer Antwort vorhanden.</p>
+</section>
+<section id="antwortmodelle">
+<h2>Antwortmodelle<a class="headerlink" href="#antwortmodelle" title="Link to this heading"></a></h2>
+<p><strong>Erfolg (Success Response)</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pong&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Fehler (Error Response)</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;channel&#39; value is out of range.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="konventionen-fur-requests">
+<h2>Konventionen für Requests<a class="headerlink" href="#konventionen-fur-requests" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>HTTP-Methoden:</strong> <code class="docutils literal notranslate"><span class="pre">GET</span></code> (lesen), <code class="docutils literal notranslate"><span class="pre">POST</span></code> (Aktion), <code class="docutils literal notranslate"><span class="pre">PUT</span></code> (ersetzen)</p></li>
+<li><p><strong>Parameterübergabe:</strong> <strong>JSON-Body</strong> für Nutzdaten (POST/PUT/PATCH)</p></li>
+<li><dl class="simple">
+<dt><strong>Antwortcodes (Leitfaden):</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> – Erfolg mit Inhalt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code> – Ressource erstellt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">204</span> <span class="pre">No</span> <span class="pre">Content</span></code> – Erfolg ohne Inhalt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> – Ungültige Anfrage/Parameter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> – Authentifizierung erforderlich/fehlgeschlagen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> – Berechtigung fehlt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code> – Ressource nicht vorhanden</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="AGV-Doku – Übersicht" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agv_rest_api_common.html" class="btn btn-neutral float-right" title="Entry-Points: Common" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

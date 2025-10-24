@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry-Points: Info &mdash; AGV-RestAPI-Doku 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Entry-Points: Buzzer" href="agv_rest_api_buzzer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agv-info-api-info-agv">AGV Info – /api/info/agv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esp32-chip-info-api-info-esp32-chip">ESP32 Chip Info – /api/info/esp32/chip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esp32-network-info-api-info-esp32-network">ESP32 Network Info – /api/info/esp32/network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esp32-partition-info-api-info-esp32-partitions">ESP32 Partition Info – /api/info/esp32/partitions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Entry-Points: Info</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_rest_api_info.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-points-info">
+<h1>Entry-Points: Info<a class="headerlink" href="#entry-points-info" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
+</div>
+<p><strong>EntryPoints:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-api-info-agv"><span class="std std-ref">GET /api/info/agv</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-info-esp32-chip"><span class="std std-ref">GET /api/info/esp32/chip</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-info-esp32-network"><span class="std std-ref">GET /api/info/esp32/network</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-info-esp32-partitions"><span class="std std-ref">GET /api/info/esp32/partitions</span></a></p></li>
+</ul>
+<section id="agv-info-api-info-agv">
+<span id="get-api-info-agv"></span><h2>AGV Info – /api/info/agv<a class="headerlink" href="#agv-info-api-info-agv" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-info-agv">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/info/agv</span></span><a class="headerlink" href="#get--api-info-agv" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert allgemeine Informationen zum AGV-System.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Informationen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Dieser Endpunkt liefert allgemeine Systeminformationen über das AGV,
+darunter Betriebszeit, Name, eindeutige ID und Firmware-Details.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;uptime_sec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2845.399</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;agv_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agv_WIUEuh&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;agv_uniqueID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unused--&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;firmware&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;compile_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;25-10-24&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;compile_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16:37&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;compile_datetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;25-10-24 16:37&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.154&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uptime_sec</span></code> <em>(float)</em> – Laufzeit des Systems in Sekunden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">agv_name</span></code> <em>(string)</em> – Aktuell konfigurierter Name des AGV.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">agv_uniqueID</span></code> <em>(string)</em> – Eindeutige Identifikationsnummer des AGV (optional).</p></li>
+<li><dl class="simple">
+<dt><strong>firmware</strong> <em>(object)</em> – Firmware-Informationen</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile_date</span></code> <em>(string)</em> – Kompilierungsdatum (TT-MM-JJ).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile_time</span></code> <em>(string)</em> – Kompilierungszeit (HH:MM).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile_datetime</span></code> <em>(string)</em> – Kombination aus Datum und Zeit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> <em>(string)</em> – Firmware-Versionsnummer.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="esp32-chip-info-api-info-esp32-chip">
+<span id="get-api-info-esp32-chip"></span><h2>ESP32 Chip Info – /api/info/esp32/chip<a class="headerlink" href="#esp32-chip-info-api-info-esp32-chip" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-info-esp32-chip">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/info/esp32/chip</span></span><a class="headerlink" href="#get--api-info-esp32-chip" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert Systeminformationen über den ESP32-Chip.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Informationen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Dieser Endpunkt liefert detaillierte Hardware- und Systeminformationen über den ESP32-Chip,
+einschließlich Speicher, CPU, Flash-Parameter, Chip-Details und des letzten Reset-Grundes.
+Er dient primär zu Diagnose- und Monitoring-Zwecken.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;free_heap_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">166548</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;min_free_heap_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100408</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;max_alloc_heap_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">110580</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;total_heap&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">306156</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;frequency_mhz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;core_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;flash&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;chip_size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4194304</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chip_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chip_speed_hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40000000</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;chip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;revision&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ESP32-D0WD-V3&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;sdk_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v4.4.7-dirty&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chip_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cdf9d108&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;reset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;reason_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;reason_desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Power-on Reset&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>memory</strong> <em>(object)</em> – Speicherinformationen</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">free_heap_bytes</span></code> <em>(int)</em> – Aktuell verfügbarer Heap-Speicher.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_free_heap_bytes</span></code> <em>(int)</em> – Minimaler Heap-Speicher während der Laufzeit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_alloc_heap_bytes</span></code> <em>(int)</em> – Größter zusammenhängender Heap-Block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_heap</span></code> <em>(int)</em> – Gesamter verfügbarer Heap.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>cpu</strong> <em>(object)</em> – Prozessorinformationen</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">frequency_mhz</span></code> <em>(int)</em> – CPU-Frequenz in MHz.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">core_count</span></code> <em>(int)</em> – Anzahl der CPU-Kerne.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>flash</strong> <em>(object)</em> – Flash-Speicherparameter</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_size_bytes</span></code> <em>(int)</em> – Gesamtkapazität des Flash-Chips.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_mode</span></code> <em>(int)</em> – Betriebsmodus des Flash (z. B. QIO/DIO).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_speed_hz</span></code> <em>(int)</em> – Taktfrequenz des Flash-Speichers.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>chip</strong> <em>(object)</em> – Chip-spezifische Details</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">revision</span></code> <em>(int)</em> – Hardware-Revision.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model</span></code> <em>(string)</em> – Modellbezeichnung des ESP32-Chips.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sdk_version</span></code> <em>(string)</em> – Version der verwendeten ESP-IDF.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_id</span></code> <em>(string)</em> – Eindeutige Chip-ID.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>reset</strong> <em>(object)</em> – Informationen zum letzten Reset</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">reason_id</span></code> <em>(int)</em> – Reset-Code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reason_desc</span></code> <em>(string)</em> – Textbeschreibung des Reset-Grundes (z. B. „Power-on Reset“).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="esp32-network-info-api-info-esp32-network">
+<span id="get-api-info-esp32-network"></span><h2>ESP32 Network Info – /api/info/esp32/network<a class="headerlink" href="#esp32-network-info-api-info-esp32-network" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-info-esp32-network">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/info/esp32/network</span></span><a class="headerlink" href="#get--api-info-esp32-network" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert Netzwerk- und WLAN-Informationen des ESP32.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Informationen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Dieser Endpunkt liefert aktuelle Netzwerk- und WLAN-Parameter des ESP32,
+einschließlich IP-Konfiguration, MAC-Adresse, Hostname, WLAN-SSID, RSSI und Kanal.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;mac_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08:D1:F9:CD:5F:5C&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.132&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;subnet_mask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ip_gateway&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.254&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ip_dns&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8.8.8.8&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;esp32-agv&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ipv6&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0000:0000:0000:0000:0000:0000:0000:0000&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;wifi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;rssi_dBm&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-52</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dd-wrt&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;bssid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;F4:4D:5C:FB:BD:EC&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;connection_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;wifi_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>network</strong> <em>(object)</em> – Netzwerkparameter</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mac_address</span></code> <em>(string)</em> – MAC-Adresse des ESP32.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_address</span></code> <em>(string)</em> – Aktuelle IPv4-Adresse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subnet_mask</span></code> <em>(string)</em> – Subnetzmaske.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_gateway</span></code> <em>(string)</em> – Standard-Gateway.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_dns</span></code> <em>(string)</em> – DNS-Server-Adresse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hostname</span></code> <em>(string)</em> – Gerätename im Netzwerk.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipv6</span></code> <em>(string)</em> – IPv6-Adresse (falls konfiguriert).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>wifi</strong> <em>(object)</em> – WLAN-Statusinformationen</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">rssi_dBm</span></code> <em>(int)</em> – Empfangsfeldstärke in dBm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssid</span></code> <em>(string)</em> – Aktuell verbundene WLAN-SSID.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bssid</span></code> <em>(string)</em> – MAC-Adresse des Access Points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connection_status</span></code> <em>(int)</em> – WLAN-Verbindungsstatuscode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wifi_mode</span></code> <em>(int)</em> – WLAN-Betriebsmodus (z. B. Station, AP, etc.).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> <em>(int)</em> – Aktueller WLAN-Kanal.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="esp32-partition-info-api-info-esp32-partitions">
+<span id="get-api-info-esp32-partitions"></span><h2>ESP32 Partition Info – /api/info/esp32/partitions<a class="headerlink" href="#esp32-partition-info-api-info-esp32-partitions" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-info-esp32-partitions">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/info/esp32/partitions</span></span><a class="headerlink" href="#get--api-info-esp32-partitions" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert Informationen über die Partitionstabelle des ESP32.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Informationen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Dieser Endpunkt gibt eine Liste aller Partitionen des Flash-Speichers zurück,
+einschließlich Start- und Endadressen, Typ, Größe und Verschlüsselungsstatus.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;partitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nvs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nvs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00009000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0000e000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20480</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00005000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otadata&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ota&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0000e000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00010000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00002000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;app0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;app&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ota_0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00010000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00210000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2097152</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00200000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spiffs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spiffs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00210000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x003f0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1966080</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x001e0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;coredump&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;coredump&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x003f0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00400000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">65536</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00010000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul>
+<li><p><strong>partitions</strong> <em>(array)</em> – Liste der Partitionseinträge.
+Jeder Eintrag enthält folgende Felder:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> <em>(string)</em> – Name der Partition.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> <em>(string)</em> – Typ der Partition (z. B. <code class="docutils literal notranslate"><span class="pre">app</span></code> oder <code class="docutils literal notranslate"><span class="pre">data</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subtype</span></code> <em>(string)</em> – Untertyp der Partition (z. B. <code class="docutils literal notranslate"><span class="pre">nvs</span></code>, <code class="docutils literal notranslate"><span class="pre">spiffs</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address_begin</span></code> <em>(string)</em> – Startadresse im Flash.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address_end</span></code> <em>(string)</em> – Endadresse im Flash.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_bytes</span></code> <em>(int)</em> – Größe der Partition in Bytes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_hex_bytes</span></code> <em>(string)</em> – Größe in hexadezimaler Schreibweise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypted</span></code> <em>(string)</em> – Gibt an, ob die Partition verschlüsselt ist (<code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>).</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agv_rest_api_buzzer.html" class="btn btn-neutral float-left" title="Entry-Points: Buzzer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
