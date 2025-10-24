@@ -20,20 +20,19 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Python
-      - uses: actions/setup-python@v5
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          # falls Sphinx nicht im requirements.txt steht:
           pip install sphinx
 
-      - name: Build Sphinx
+      - name: Build Sphinx site
         run: |
           sphinx-build -b html doc _site
-          touch _site/.nojekyll  # wichtig für _static/_sources
+          touch _site/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
