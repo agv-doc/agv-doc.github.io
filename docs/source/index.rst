@@ -15,6 +15,11 @@ Beispielanfragen und -antworten.
    :caption: Inhalt
 
    agv_overview
+
+.. toctree::
+   :maxdepth: 1
+   :caption: REST-API
+
    agv_rest_api_common
    agv_rest_api_buzzer
    agv_rest_api_info

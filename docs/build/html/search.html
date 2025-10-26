@@ -44,16 +44,88 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_pwm.html">Entry-Points: PWM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_led.html">Entry-Points: LED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wifi.html">Entry-Points: WiFi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wima.html">Entry-Points: WhereIsMyAGV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_nve.html">Entry-Points: NVS (Non-Volatile Storage)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#allgemeines">Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#top-level-felder-der-api-antworten">Top-Level-Felder der API-Antworten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#antwortmodelle">Antwortmodelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#konventionen-fur-requests">Konventionen für Requests</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REST-API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_common.html#ping-api-agv-common-ping">Ping - /api/agv/common/ping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_common.html#post-api-agv-common-identify">Identify - /api/agv/common/identify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_common.html#restart-api-agv-common-restart">Restart - /api/agv/common/restart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#buzzer-off-api-agv-buzzer-off">Buzzer Off - /api/agv/buzzer/off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#buzzer-on-api-agv-buzzer-on">Buzzer On - /api/agv/buzzer/on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-once-api-agv-buzzer-beeponce">Beep Once - /api/agv/buzzer/beepOnce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-infinite-api-agv-buzzer-beepinfinite">Beep Infinite - /api/agv/buzzer/beepInfinite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-n-times-api-agv-buzzer-beepntimes">Beep N-times - /api/agv/buzzer/beepNTimes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#agv-info-api-info-agv">AGV Info – /api/info/agv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#esp32-chip-info-api-info-esp32-chip">ESP32 Chip Info – /api/info/esp32/chip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#esp32-network-info-api-info-esp32-network">ESP32 Network Info – /api/info/esp32/network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#esp32-partition-info-api-info-esp32-partitions">ESP32 Partition Info – /api/info/esp32/partitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-velocity-beide-api-agv-stepper-setvelocity">Set Velocity (beide) – /api/agv/stepper/setVelocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#enable-disable-api-agv-stepper-enable">Enable/Disable – /api/agv/stepper/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#is-moving-api-agv-stepper-ismoving">Is Moving – /api/agv/stepper/isMoving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#motion-mode-api-agv-stepper-motionmode">Motion Mode – /api/agv/stepper/motionMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#abort-motion-api-agv-stepper-abortmotion">Abort Motion – /api/agv/stepper/abortMotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#reset-position-api-agv-stepper-resetposition">Reset Position – /api/agv/stepper/resetPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#get-current-velocity-api-agv-stepper-getcurrentvelocity">Get Current Velocity – /api/agv/stepper/getCurrentVelocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#get-current-position-api-agv-stepper-getcurrentposition">Get Current Position – /api/agv/stepper/getCurrentPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-velocity-einzeln-api-agv-stepper-setvelocitysingle">Set Velocity (einzeln) – /api/agv/stepper/setVelocitySingle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-max-velocity-api-agv-stepper-setmaxvelocityperc">Set Max Velocity % – /api/agv/stepper/setMaxVelocityPerc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-max-acceleration-api-agv-stepper-setmaxaccelerationperc">Set Max Acceleration % – /api/agv/stepper/setMaxAccelerationPerc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#move-absolute-api-agv-stepper-setmoveabsolute">Move Absolute – /api/agv/stepper/setMoveAbsolute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#move-relative-api-agv-stepper-setmoverelative">Move Relative – /api/agv/stepper/setMoveRelative</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_pwm.html">Entry-Points: PWM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#pwm-settings-api-agv-pwm-settings">PWM Settings – /api/agv/pwm/settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#pwm-enable-api-agv-pwm-enable">PWM Enable – /api/agv/pwm/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-active-servos-api-agv-pwm-setactiveservos">Set Active Servos – /api/agv/pwm/setActiveServos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-position-api-agv-pwm-channel-setposition">Set Channel Position – /api/agv/pwm/channel/setPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-limits-api-agv-pwm-channel-setlimits">Set Channel Limits – /api/agv/pwm/channel/setLimits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-start-position-api-agv-pwm-channel-setstartposition">Set Channel Start Position – /api/agv/pwm/channel/setStartPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-full-sweep-time-api-agv-pwm-channel-setfullsweeptime">Set Channel Full Sweep Time – /api/agv/pwm/channel/setFullSweepTime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_led.html">Entry-Points: LED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-off-api-agv-led-off">LED Off – /api/agv/led/off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-on-api-agv-led-on">LED On – /api/agv/led/on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-flash-once-api-agv-led-flashonce">LED Flash Once – /api/agv/led/flashOnce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-flash-infinite-api-agv-led-flashinfinite">LED Flash Infinite – /api/agv/led/flashInfinite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-flash-n-times-api-agv-led-flashntimes">LED Flash N-times – /api/agv/led/flashNTimes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wifi.html">Entry-Points: WiFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wifi.html#wifi-settings-api-agv-wifi-getwifisettings">WiFi Settings – /api/agv/wifi/getWifiSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wifi.html#set-active-wifi-mode-api-agv-wifi-setactivemode">Set Active WiFi Mode – /api/agv/wifi/setActiveMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wifi.html#set-wifi-mode-data-api-agv-wifi-setmodedata">Set WiFi Mode Data – /api/agv/wifi/setModeData</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wima.html">Entry-Points: WhereIsMyAGV</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-status-api-agv-whereismyagv-status">WhereIsMyAGV Status – /api/agv/whereIsMyAGV/status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-enable-api-agv-whereismyagv-enable">WhereIsMyAGV Enable – /api/agv/whereIsMyAGV/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-settings-api-agv-whereismyagv-settings">WhereIsMyAGV Settings – /api/agv/whereIsMyAGV/settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_nve.html">Entry-Points: NVS (Non-Volatile Storage)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-nvs-namespaces-api-nve-namespaces">List NVS Namespaces – /api/nve/namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-keys-and-values-api-nve-listkeysandvalues">List Keys and Values – /api/nve/listKeysAndValues</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
