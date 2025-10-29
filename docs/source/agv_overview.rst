@@ -11,7 +11,7 @@ Allgemeines
 - **Protokoll:** HTTP
 - **Datenformat:** Alle **Requests** (bei POST/PUT/PATCH) und **Responses** verwenden **JSON**
 - **Zeichensatz:** UTF-8
-- **Content-Type:** ``application/json; charset=utf-8``
+- **Content-Type:** ``application/json``
 - **Fehlermodell:** Einheitliches Fehlerobjekt (siehe unten)
 - **Lokalisierung:** Fehlermeldungen standardmäßig Englisch
 
