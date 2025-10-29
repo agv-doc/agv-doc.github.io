@@ -5,9 +5,9 @@
 AGV-Doku – Übersicht
 ====================
 
-Diese Dokumentation beschreibt den Aufbau und die Verwendung der **AGV REST API**. 
-Sie enthält Konventionen, das allgemeine Antwortmodell (Erfolg & Fehler) und die 
-detaillierte Beschreibung der verfügbaren Endpunkte – inklusive Parameter, 
+Diese Dokumentation beschreibt den Aufbau und die Verwendung der **AGV REST API**.
+Sie enthält Konventionen, das allgemeine Antwortmodell (Erfolg & Fehler) und die
+detaillierte Beschreibung der verfügbaren Endpunkte – inklusive Parameter,
 Beispielanfragen und -antworten.
 
 .. toctree::
@@ -29,6 +29,7 @@ Beispielanfragen und -antworten.
    agv_rest_api_wifi
    agv_rest_api_wima
    agv_rest_api_nve
+   agv_rest_api_linefollower
 
 
 .. Indizes und Tabellen
