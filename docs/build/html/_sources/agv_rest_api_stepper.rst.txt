@@ -30,7 +30,7 @@ Set Velocity (beide) – /api/agv/stepper/setVelocity
 
    :synopsis: Setzt die Zielgeschwindigkeit beider Schrittmotoren in % der Maximalgeschwindigkeit.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam float velLeft_perc: Zielgeschwindigkeit linker Motor (Bereich ``-100.0`` bis ``100.0``).
    :jsonparam float velRight_perc: Zielgeschwindigkeit rechter Motor (Bereich ``-100.0`` bis ``100.0``).
    :statuscode 200: Geschwindigkeiten gesetzt.
@@ -72,7 +72,7 @@ Enable/Disable – /api/agv/stepper/enable
 
    :synopsis: Aktiviert oder deaktiviert die Schrittmotor-Treiber.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string stepper: ``"on"`` oder ``"off"``.
    :statuscode 200: Zustand gesetzt.
    :statuscode 400: Ungültiger Wert oder fehlendes Feld.
@@ -107,7 +107,7 @@ Is Moving – /api/agv/stepper/isMoving
 .. http:get:: /api/agv/stepper/isMoving
 
    :synopsis: Prüft, ob gerade eine Bewegung aktiv ist.
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Status geliefert.
 
 **Response – Success (200):**
@@ -129,7 +129,7 @@ Motion Mode – /api/agv/stepper/motionMode
 .. http:get:: /api/agv/stepper/motionMode
 
    :synopsis: Liefert den aktuellen Bewegungsmodus.
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Modus geliefert.
 
 **Beschreibung:**  
@@ -154,7 +154,7 @@ Abort Motion – /api/agv/stepper/abortMotion
 .. http:get:: /api/agv/stepper/abortMotion
 
    :synopsis: Bricht die aktuelle Bewegung ab.
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Abbruch initiiert.
 
 **Response – Success (200):**
@@ -176,7 +176,7 @@ Reset Position – /api/agv/stepper/resetPosition
 .. http:get:: /api/agv/stepper/resetPosition
 
    :synopsis: Setzt die aktuelle Position beider Motoren zurück.
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Position zurückgesetzt.
    :statuscode 400: Stepper Busy – Zurücksetzen während Bewegung nicht möglich.
 
@@ -203,7 +203,7 @@ Get Current Velocity – /api/agv/stepper/getCurrentVelocity
 .. http:get:: /api/agv/stepper/getCurrentVelocity
 
    :synopsis: Liefert aktuelle Winkelgeschwindigkeit beider Motoren.
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Geschwindigkeiten geliefert.
 
 **Beschreibung:**  
@@ -234,7 +234,7 @@ Get Current Position – /api/agv/stepper/getCurrentPosition
 .. http:get:: /api/agv/stepper/getCurrentPosition
 
    :synopsis: Liefert die aktuelle Position (Steps) beider Motoren.
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Position geliefert.
 
 **Beschreibung:**  
@@ -266,7 +266,7 @@ Set Velocity (einzeln) – /api/agv/stepper/setVelocitySingle
 
    :synopsis: Setzt die Zielgeschwindigkeit eines einzelnen Motors in % der Maximalgeschwindigkeit.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam float vel_perc: Zielgeschwindigkeit (Bereich ``-100.0`` bis ``100.0``).
    :jsonparam string stepper: Zielmotor ``"left"`` oder ``"right"``.
    :statuscode 200: Geschwindigkeit gesetzt.
@@ -304,7 +304,7 @@ Set Max Velocity % – /api/agv/stepper/setMaxVelocityPerc
 
    :synopsis: Setzt die maximale Geschwindigkeit (global) in Prozent.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam float maxVel_perc: Prozentwert (Bereich ``0.0`` bis ``100.0``).
    :statuscode 200: Maximalgeschwindigkeit gesetzt.
    :statuscode 400: Ungültiger Wert/Typ oder Motoren bewegen sich (State).
@@ -348,7 +348,7 @@ Set Max Acceleration % – /api/agv/stepper/setMaxAccelerationPerc
 
    :synopsis: Setzt die maximale Beschleunigung (global) in Prozent.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam float maxAcc_perc: Prozentwert (Bereich ``0.0`` bis ``100.0``).
    :statuscode 200: Maximale Beschleunigung gesetzt.
    :statuscode 400: Ungültiger Wert/Typ oder Motoren bewegen sich (State).
@@ -389,7 +389,7 @@ Move Absolute – /api/agv/stepper/setMoveAbsolute
 
    :synopsis: Startet eine Positionsbewegung beider Motoren auf absolute Zielpositionen (Steps).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam long leftPos_steps: Zielposition linker Motor in Steps.
    :jsonparam long rightPos_steps: Zielposition rechter Motor in Steps.
    :statuscode 200: Bewegung gestartet.
@@ -432,7 +432,7 @@ Move Relative – /api/agv/stepper/setMoveRelative
 
    :synopsis: Startet eine Relativbewegung beider Motoren (Delta in Steps).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam long leftDelta_steps: Schritt-Differenz linker Motor.
    :jsonparam long rightDelta_steps: Schritt-Differenz rechter Motor.
    :statuscode 200: Bewegung gestartet.

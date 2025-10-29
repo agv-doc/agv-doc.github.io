@@ -20,7 +20,7 @@ WiFi Settings – /api/agv/wifi/getWifiSettings
 
    :synopsis: Liefert den aktiven WiFi-Modus und gespeicherte Zugangsdaten (AP, WiFi-01, WiFi-02).
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Einstellungen erfolgreich abgerufen.
 
 **Beschreibung:**  
@@ -62,7 +62,7 @@ Set Active WiFi Mode – /api/agv/wifi/setActiveMode
 
    :synopsis: Setzt den aktiven WiFi-Modus.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string newMode: Neuer Modus, einer von ``"ap"``, ``"wifi-01"``, ``"wifi-02"``.
    :statuscode 200: Modus erfolgreich gesetzt.
    :statuscode 400: Ungültiger Wert/Typ.
@@ -112,7 +112,7 @@ Set WiFi Mode Data – /api/agv/wifi/setModeData
 
    :synopsis: Hinterlegt SSID und Passwort für ein WiFi-Profil (AP, wifi-01 oder wifi-02).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string mode: Zielprofil: ``"ap"``, ``"wifi-01"``, ``"wifi-02"``.
    :jsonparam string ssid: SSID (Länge 1..32 Zeichen).
    :jsonparam string passwd: Passwort (Länge 8..63 Zeichen).

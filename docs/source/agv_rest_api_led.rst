@@ -22,7 +22,7 @@ LED Off – /api/agv/led/off
 
    :synopsis: Schaltet die LED aus.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: LED ausgeschaltet.
 
 **Beschreibung:**  
@@ -52,7 +52,7 @@ LED On – /api/agv/led/on
 
    :synopsis: Schaltet die LED in einer bestimmten Farbe ein.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string color: Eine der Farben ``red``, ``green``, ``blue``, ``yellow``, ``magenta``, ``cyan``, ``white``.
    :statuscode 200: LED eingeschaltet.
    :statuscode 400: Ungültiger Wert/Typ.
@@ -101,7 +101,7 @@ LED Flash Once – /api/agv/led/flashOnce
 
    :synopsis: Lässt die LED einmalig in der gewünschten Farbe für eine bestimmte Dauer leuchten.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string color: Eine der Farben ``red``, ``green``, ``blue``, ``yellow``, ``magenta``, ``cyan``, ``white``.
    :jsonparam int duration_ms: Leuchtdauer in Millisekunden (> 0).
    :statuscode 200: Flash ausgeführt.
@@ -152,7 +152,7 @@ LED Flash Infinite – /api/agv/led/flashInfinite
 
    :synopsis: Lässt die LED unbegrenzt mit einer bestimmten Frequenz blinken.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string color: Eine der Farben ``red``, ``green``, ``blue``, ``yellow``, ``magenta``, ``cyan``, ``white``.
    :jsonparam float flashFrequency_Hz: Blinkfrequenz in Hz (``LED_MIN_FREQUENCY``..``LED_MAX_FREQUENCY``).
    :statuscode 200: Blinksequenz gestartet.
@@ -204,7 +204,7 @@ LED Flash N-times – /api/agv/led/flashNTimes
 
    :synopsis: Lässt die LED eine endliche Anzahl von Malen blinken.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int flashFrequency_Hz: Blinkfrequenz in Hz (``LED_MIN_FREQUENCY``..``LED_MAX_FREQUENCY``).
    :jsonparam int numOfFlashes: Anzahl der Blinkvorgänge (> 0).
    :jsonparam string color: Eine der Farben ``red``, ``green``, ``blue``, ``yellow``, ``magenta``, ``cyan``, ``white``.

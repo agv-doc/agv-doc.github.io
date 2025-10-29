@@ -21,7 +21,7 @@ AGV Info – /api/info/agv
 
    :synopsis: Liefert allgemeine Informationen zum AGV-System.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
 **Beschreibung:**  
@@ -71,7 +71,7 @@ ESP32 Chip Info – /api/info/esp32/chip
 
    :synopsis: Liefert Systeminformationen über den ESP32-Chip.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
 **Beschreibung:**  
@@ -156,7 +156,7 @@ ESP32 Network Info – /api/info/esp32/network
 
    :synopsis: Liefert Netzwerk- und WLAN-Informationen des ESP32.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
 **Beschreibung:**  
@@ -224,7 +224,7 @@ ESP32 Partition Info – /api/info/esp32/partitions
 
    :synopsis: Liefert Informationen über die Partitionstabelle des ESP32.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
 **Beschreibung:**  

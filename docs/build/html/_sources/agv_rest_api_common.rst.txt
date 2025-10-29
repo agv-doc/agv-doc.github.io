@@ -20,7 +20,7 @@ Ping - /api/agv/common/ping
 
    :synopsis: Health-Check (Erreichbarkeit und Verarbeitungsfähigkeit prüfen).
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: OK
 
 **Beschreibung:**  
@@ -52,7 +52,7 @@ Identify - /api/agv/common/identify
 
    :synopsis: Identifikation des Fahrzeugs auslösen.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string mode: Auszuführende Aktion (``"beep"``, ``"flash"``, ``"beepFlash"``).
    :statuscode 200: OK
    :statuscode 400: Ungültiger Moduswert.
@@ -107,7 +107,7 @@ Restart - /api/agv/common/restart
 
    :synopsis: Neustart des Systems (ESP32) auslösen.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: OK
 
 **Beschreibung:**  

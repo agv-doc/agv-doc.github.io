@@ -20,7 +20,7 @@ WhereIsMyAGV Status – /api/agv/whereIsMyAGV/status
 
    :synopsis: Liefert den aktuellen Status der "WhereIsMyAGV"-Funktion.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Status erfolgreich abgerufen.
    :statuscode 403: Zugriff verweigert.
 
@@ -58,7 +58,7 @@ WhereIsMyAGV Enable – /api/agv/whereIsMyAGV/enable
 
    :synopsis: Aktiviert oder deaktiviert die „WhereIsMyAGV“-Funktion.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam bool enable: ``true`` zum Aktivieren, ``false`` zum Deaktivieren.
    :statuscode 200: Status geändert.
    :statuscode 400: Ungültiger Wert/Typ.
@@ -106,7 +106,7 @@ WhereIsMyAGV Settings – /api/agv/whereIsMyAGV/settings
 
    :synopsis: Legt die Gruppen- und Secret-Daten für die „WhereIsMyAGV“-Funktion fest.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string group: Gruppenname (mind. 3 Zeichen).
    :jsonparam string secret: Geheimschlüssel zur Authentifizierung.
    :statuscode 200: Einstellungen erfolgreich übernommen.

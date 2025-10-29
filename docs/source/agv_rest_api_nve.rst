@@ -19,7 +19,7 @@ List NVS Namespaces – /api/nve/namespaces
 
    :synopsis: Gibt alle in der NVS-Partition vorhandenen Namespaces zurück.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Erfolgreich.
    :statuscode 403: Zugriff verweigert.
 
@@ -57,7 +57,7 @@ List Keys and Values – /api/nve/listKeysAndValues
 
    :synopsis: Listet alle Schlüssel und deren Werte innerhalb eines gegebenen NVS-Namespaces.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam string namespace: Name des auszulesenden Namespaces.
    :statuscode 200: Erfolgreich.
    :statuscode 400: Ungültiger Wert/Typ.

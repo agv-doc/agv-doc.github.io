@@ -22,7 +22,7 @@ Buzzer Off - /api/agv/buzzer/off
 
    :synopsis: Schaltet den Buzzer aus.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Buzzer wurde erfolgreich ausgeschaltet.
    :statuscode 400: Ungültige Anfrageparameter.
 
@@ -55,7 +55,7 @@ Buzzer On - /api/agv/buzzer/on
 
    :synopsis: Schaltet den Buzzer ein.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int toneFrequency_Hz: Tonfrequenz in Hz.
    :statuscode 200: Buzzer wurde erfolgreich eingeschaltet.
    :statuscode 400: Ungültige Anfrageparameter.
@@ -110,7 +110,7 @@ Beep Once - /api/agv/buzzer/beepOnce
 
    :synopsis: Löst einen einzelnen Piepton aus.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int toneFrequency_Hz: Tonfrequenz in Hz.
    :jsonparam int duration_ms: Tondauer in Millisekunden.
    :statuscode 200: Piepton ausgelöst.
@@ -164,7 +164,7 @@ Beep Infinite - /api/agv/buzzer/beepInfinite
 
    :synopsis: Löst ein dauerhaftes Piepen aus (Stop per ``/off``).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int toneFrequency_Hz: Tonfrequenz in Hz.
    :jsonparam float beepFrequency_Hz: Piepton-Frequenz in Hz (Beep-Zyklen pro Sekunde).
    :statuscode 200: Dauerpiepen gestartet.
@@ -210,7 +210,7 @@ Beep N-times - /api/agv/buzzer/beepNTimes
 
    :synopsis: Löst mehrere Pieptöne hintereinander aus.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int numOfBeeps:   Anzahl der Pieptöne.
    :jsonparam int toneFrequency_Hz: Tonfrequenz in Hz.
    :jsonparam int beepFrequency_Hz: Piepton-Frequenz in Hz (Beep-Zyklen pro Sekunde).

@@ -24,7 +24,7 @@ PWM Settings – /api/agv/pwm/settings
 
    :synopsis: Liefert den aktuellen PWM-Status, Limits und Kanal-Einstellungen.
    :reqheader Accept: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :statuscode 200: Einstellungen erfolgreich abgerufen.
 
 **Beschreibung:**  
@@ -99,7 +99,7 @@ PWM Enable – /api/agv/pwm/enable
 
    :synopsis: Aktiviert oder deaktiviert das PWM-Modul.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam bool enable: `true` zum Aktivieren, `false` zum Deaktivieren.
    :statuscode 200: Status erfolgreich gesetzt.
    :statuscode 400: Ungültiger Datentyp im Request.
@@ -148,7 +148,7 @@ Set Active Servos – /api/agv/pwm/setActiveServos
 
    :synopsis: Setzt die Anzahl der aktiven Servo-Kanäle.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int activeServos: Anzahl aktiver Kanäle (1..`SERVO_MAX_CHANNELS`).
    :statuscode 200: Anzahl erfolgreich gesetzt.
    :statuscode 400: Ungültiger Wert/Typ.
@@ -185,7 +185,7 @@ Set Channel Position – /api/agv/pwm/channel/setPosition
 
    :synopsis: Setzt die Position eines Servo-Kanals (Grad).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int channel: Kanalindex (0..`activeServos-1`).
    :jsonparam int newPosition: Zielposition in Grad (0..180). Wird innerhalb der Kanal-Limits geklemmt.
    :statuscode 200: Position gesetzt.
@@ -229,7 +229,7 @@ Set Channel Limits – /api/agv/pwm/channel/setLimits
 
    :synopsis: Setzt Min-/Max-Grenzen eines Servo-Kanals (Grad).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int channel: Kanalindex (0..`activeServos-1`).
    :jsonparam int min: Untere Positionsgrenze (``SERVO_MIN_LIMIT``..``SERVO_MAX_LIMIT``).
    :jsonparam int max: Obere Positionsgrenze (``SERVO_MIN_LIMIT``..``SERVO_MAX_LIMIT``, > ``min``).
@@ -277,7 +277,7 @@ Set Channel Start Position – /api/agv/pwm/channel/setStartPosition
 
    :synopsis: Setzt die Startposition eines Servo-Kanals (Grad).
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int channel: Kanalindex (0..`activeServos-1`).
    :jsonparam int startPos: Startposition in Grad (innerhalb der kanalbezogenen Limits).
    :statuscode 200: Startposition gesetzt.
@@ -316,7 +316,7 @@ Set Channel Full Sweep Time – /api/agv/pwm/channel/setFullSweepTime
 
    :synopsis: Setzt die Vollausschlag-Zeit (0↔180°) eines Servo-Kanals in Millisekunden.
    :reqheader Content-Type: application/json
-   :resheader Content-Type: application/json; charset=utf-8
+   :resheader Content-Type: application/json
    :jsonparam int channel: Kanalindex (0..`activeServos-1`).
    :jsonparam int fullSweepTime_ms: Vollausschlag-Zeit in ms (``SERVO_MIN_FULL_SWEEP_TIME_MS``..``SERVO_MAX_FULL_SWEEP_TIME_MS``).
    :statuscode 200: Zeit gesetzt.
