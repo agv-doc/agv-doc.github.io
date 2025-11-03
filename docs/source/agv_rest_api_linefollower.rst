@@ -14,7 +14,7 @@ Entry-Points: Line Follower
 .. _get-api-agv-line-follower-settings:
 
 Line Follower Sensors – /api/agv/linefollower/settings
-------------------------------------
+------------------------------------------------------
 
 .. http:get:: /api/agv/linefollower/settings
 
