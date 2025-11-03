@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entry-Points: NVS (Non-Volatile Storage) &mdash; AGV-RestAPI-Doku 1.1.x documentation</title>
+  <title>Entry-Points: Line Follower &mdash; AGV-RestAPI-Doku 1.1.x documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Entry-Points: Line Follower" href="agv_rest_api_linefollower.html" />
-    <link rel="prev" title="Entry-Points: WhereIsMyAGV" href="agv_rest_api_wima.html" /> 
+    <link rel="prev" title="Entry-Points: NVS (Non-Volatile Storage)" href="agv_rest_api_nve.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -121,16 +120,16 @@
 <li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-settings-api-agv-whereismyagv-settings">WhereIsMyAGV Settings – /api/agv/whereIsMyAGV/settings</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: NVS (Non-Volatile Storage)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#list-nvs-namespaces-api-nve-namespaces">List NVS Namespaces – /api/nve/namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list-keys-and-values-api-nve-listkeysandvalues">List Keys and Values – /api/nve/listKeysAndValues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_nve.html">Entry-Points: NVS (Non-Volatile Storage)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-nvs-namespaces-api-nve-namespaces">List NVS Namespaces – /api/nve/namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-keys-and-values-api-nve-listkeysandvalues">List Keys and Values – /api/nve/listKeysAndValues</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_linefollower.html">Entry-Points: Line Follower</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#line-follower-sensors-api-agv-linefollower-settings">Line Follower Sensors – /api/agv/linefollower/settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#line-follower-sensors-api-agv-linefollower-sensors">Line Follower Sensors – /api/agv/linefollower/sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#ine-follower-sensors-api-agv-linefollower-enable">ine Follower Sensors – /api/agv/linefollower/enable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#set-sample-delta-time-api-agv-linefollower-setsampledeltatime">Set Sample Delta Time – /api/agv/linefollower/setSampleDeltaTime</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: Line Follower</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#line-follower-sensors-api-agv-linefollower-settings">Line Follower Sensors – /api/agv/linefollower/settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-follower-sensors-api-agv-linefollower-sensors">Line Follower Sensors – /api/agv/linefollower/sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ine-follower-sensors-api-agv-linefollower-enable">ine Follower Sensors – /api/agv/linefollower/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-sample-delta-time-api-agv-linefollower-setsampledeltatime">Set Sample Delta Time – /api/agv/linefollower/setSampleDeltaTime</a></li>
 </ul>
 </li>
 </ul>
@@ -149,9 +148,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Entry-Points: NVS (Non-Volatile Storage)</li>
+      <li class="breadcrumb-item active">Entry-Points: Line Follower</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/agv_rest_api_nve.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/agv_rest_api_linefollower.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -159,25 +158,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="entry-points-nvs-non-volatile-storage">
-<h1>Entry-Points: NVS (Non-Volatile Storage)<a class="headerlink" href="#entry-points-nvs-non-volatile-storage" title="Link to this heading"></a></h1>
+  <section id="entry-points-line-follower">
+<h1>Entry-Points: Line Follower<a class="headerlink" href="#entry-points-line-follower" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
 </div>
 <p><strong>EntryPoints:</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#get-api-nve-namespaces"><span class="std std-ref">GET /api/nve/namespaces</span></a></p></li>
-<li><p><a class="reference internal" href="#post-api-nve-listkeysandvalues"><span class="std std-ref">POST /api/nve/listKeysAndValues</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-agv-line-follower-settings"><span class="std std-ref">GET /api/agv/linefollower/settings</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-agv-line-follower-sensors"><span class="std std-ref">GET /api/agv/linefollower/sensors</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-line-follower-enable"><span class="std std-ref">POST /api/agv/linefollower/enable</span></a></p></li>
+<li><p><a class="reference internal" href="#post-api-agv-line-follower-setsampledeltatime"><span class="std std-ref">POST /api/agv/linefollower/setSampleDeltaTime</span></a></p></li>
 </ul>
-<section id="list-nvs-namespaces-api-nve-namespaces">
-<span id="get-api-nve-namespaces"></span><h2>List NVS Namespaces – /api/nve/namespaces<a class="headerlink" href="#list-nvs-namespaces-api-nve-namespaces" title="Link to this heading"></a></h2>
+<section id="line-follower-sensors-api-agv-linefollower-settings">
+<span id="get-api-agv-line-follower-settings"></span><h2>Line Follower Sensors – /api/agv/linefollower/settings<a class="headerlink" href="#line-follower-sensors-api-agv-linefollower-settings" title="Link to this heading"></a></h2>
 <dl class="http get">
-<dt class="sig sig-object http" id="get--api-nve-namespaces">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/nve/namespaces</span></span><a class="headerlink" href="#get--api-nve-namespaces" title="Link to this definition"></a></dt>
+<dt class="sig sig-object http" id="get--api-agv-linefollower-settings">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/linefollower/settings</span></span><a class="headerlink" href="#get--api-agv-linefollower-settings" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Synopsis<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Gibt alle in der NVS-Partition vorhandenen Namespaces zurück.</p>
+<dd class="field-odd"><p>Liefert die aktuellen Einstellungen des Line Follower-Moduls.</p>
 </dd>
 <dt class="field-even">Request Headers<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -191,43 +192,144 @@
 </dd>
 <dt class="field-even">Status Codes<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Erfolgreich.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Zugriff verweigert.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Einstellungen erfolgreich abgerufen.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <p><strong>Beschreibung:</strong>
-Liest die NVS-Partition des ESP32 aus und listet alle vorhandenen Namespaces (z. B. Module, Konfigurationsbereiche) auf.</p>
+Liefert die aktuellen Einstellungen des Line Follower-Moduls.</p>
 <p><strong>Response – Success (200):</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;namespaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;wifi&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;system&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;agv_settings&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;sensors&quot;</span>
-<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sampleDeltaTime&quot;</span><span class="p">:</span><span class="mi">200</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enabled</span></code> <em>(bool)</em> – Line Follower-Modul aktiv/inaktiv.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampleDeltaTime</span></code> <em>(int)</em> – Delta Time in Millisekunden.</p></li>
+</ul>
+</section>
+<section id="line-follower-sensors-api-agv-linefollower-sensors">
+<span id="get-api-agv-line-follower-sensors"></span><h2>Line Follower Sensors – /api/agv/linefollower/sensors<a class="headerlink" href="#line-follower-sensors-api-agv-linefollower-sensors" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-linefollower-sensors">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/linefollower/sensors</span></span><a class="headerlink" href="#get--api-agv-linefollower-sensors" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert die Sensorwerte des Line Followers.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Sensorwerte.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Liefert für jeden der Sensoren des Line Follower den zuletzt ausgelesenen Wert.
+Die Sensorwerte des Line Followers werden intern alle 10ms aktuallisiert.</p>
+<p><strong>Request Body – JSON:</strong></p>
+<p><em>leer</em></p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;timestamp_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">55424</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">202</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Felder (``data``):</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">namespaces</span></code> <em>(array of string)</em> – Liste aller vorhandenen Namespace-Namen in der NVS-Partition.</p></li>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">timestamp_ms</span></code> <em>(unsigned long)</em> - Relativer Zeitpunkt des auslesesn der Sensorwerte (in Millisekunden).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sensors</span></code> <em>(array of integers)</em> – Liste aller Sensorwerte (Array Index 0–4 entsprechen Sensor 1–5).</p></li>
 </ul>
+</div></blockquote>
 </section>
-<section id="list-keys-and-values-api-nve-listkeysandvalues">
-<span id="post-api-nve-listkeysandvalues"></span><h2>List Keys and Values – /api/nve/listKeysAndValues<a class="headerlink" href="#list-keys-and-values-api-nve-listkeysandvalues" title="Link to this heading"></a></h2>
-<dl class="http post">
-<dt class="sig sig-object http" id="post--api-nve-listKeysAndValues">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/nve/listKeysAndValues</span></span><a class="headerlink" href="#post--api-nve-listKeysAndValues" title="Link to this definition"></a></dt>
+<section id="ine-follower-sensors-api-agv-linefollower-enable">
+<span id="post-api-agv-line-follower-enable"></span><h2>ine Follower Sensors – /api/agv/linefollower/enable<a class="headerlink" href="#ine-follower-sensors-api-agv-linefollower-enable" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-linefollower-enable">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/linefollower/enable</span></span><a class="headerlink" href="#get--api-agv-linefollower-enable" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Synopsis<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Listet alle Schlüssel und deren Werte innerhalb eines gegebenen NVS-Namespaces.</p>
+<dd class="field-odd"><p>Aktiviert oder deaktiviert das Line Follower-Modul.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json; charset=utf-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Status erfolgreich gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Datentyp oder Wert im Request.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong> Schaltet das Line Follower-Modul ein/aus. Die Antwort spiegelt den aktuellen Zustand wider.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response – Error (400 Bad Request):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;enable&#39; key must be of type bool.&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="set-sample-delta-time-api-agv-linefollower-setsampledeltatime">
+<span id="post-api-agv-line-follower-setsampledeltatime"></span><h2>Set Sample Delta Time – /api/agv/linefollower/setSampleDeltaTime<a class="headerlink" href="#set-sample-delta-time-api-agv-linefollower-setsampledeltatime" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-linefollower-setSampleDeltaTime">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/linefollower/setSampleDeltaTime</span></span><a class="headerlink" href="#post--api-agv-linefollower-setSampleDeltaTime" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Setzt das Zeit zwischen zwei Anfragen der Line Follower Daten.</p>
 </dd>
 <dt class="field-even">Request Headers<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -241,26 +343,24 @@ Liest die NVS-Partition des ESP32 aus und listet alle vorhandenen Namespaces (z.
 </dd>
 <dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>namespace</strong> (<em>string</em>) – Name des auszulesenden Namespaces.</p></li>
+<li><p><strong>sampleDeltaTime</strong> (<em>unsigned int</em>) – Delta Time in Millisekunden.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Status Codes<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Erfolgreich.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Wert/Typ.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Zugriff verweigert.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a></span> – Interner Fehler beim Zugriff auf NVS.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Wert erfolgreich gesetzt.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Datentyp oder Wert im Request.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <p><strong>Beschreibung:</strong>
-Öffnet den angegebenen NVS-Namespace und liest alle enthaltenen Schlüssel, Datentypen und Werte aus.
-Unterstützt werden alle NVS-Typen (z. B. <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">blob</span></code>).</p>
+Setzt das Zeit zwischen zwei Anfragen der Line Follower Daten.
+Daraus ergibt sich die Frequenz mit, welcher die Daten aktuallisiert werden.</p>
 <p><strong>Request Body – JSON:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agv&quot;</span>
+<span class="w">  </span><span class="nt">&quot;sampleDeltaTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -269,43 +369,18 @@ Unterstützt werden alle NVS-Typen (z. B. <code class="docutils literal notransl
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssid&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyWiFi&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pw&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345678&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;channel&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int32&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;sampleDeltaTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Felder (``data``):</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">namespace</span></code> <em>(string)</em> – Der angefragte Namespace.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code> <em>(array of object)</em> – Schlüssel-Wert-Paare des Namespaces.
-- <code class="docutils literal notranslate"><span class="pre">key</span></code> <em>(string)</em> – Schlüsselname
-- <code class="docutils literal notranslate"><span class="pre">typeId</span></code> <em>(int)</em> – NVS-interne Typ-ID
-- <code class="docutils literal notranslate"><span class="pre">typeName</span></code> <em>(string)</em> – Menschlich lesbarer Typ (z. B. <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">blob</span></code>)
-- <code class="docutils literal notranslate"><span class="pre">value</span></code> <em>(mixed)</em> – Wert (je nach Typ Zahl, String oder Byte-Array)</p></li>
-</ul>
 <p><strong>Response – Error (400 Bad Request):</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;namespace&#39; key must be of type string.&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>Response – Error (500 Internal Server Error):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NVS Error&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Failed to open NVS namespace: wifi&quot;</span>
+<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;sampleDeltaTime&#39; key must be of type unsigned integer.&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -317,8 +392,7 @@ Unterstützt werden alle NVS-Typen (z. B. <code class="docutils literal notransl
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="agv_rest_api_wima.html" class="btn btn-neutral float-left" title="Entry-Points: WhereIsMyAGV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="agv_rest_api_linefollower.html" class="btn btn-neutral float-right" title="Entry-Points: Line Follower" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="agv_rest_api_nve.html" class="btn btn-neutral float-left" title="Entry-Points: NVS (Non-Volatile Storage)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
