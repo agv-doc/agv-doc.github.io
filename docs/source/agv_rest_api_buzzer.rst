@@ -26,7 +26,7 @@ Buzzer Off - /api/agv/buzzer/off
    :statuscode 200: Buzzer wurde erfolgreich ausgeschaltet.
    :statuscode 400: Ungültige Anfrageparameter.
 
-**Beschreibung:**  
+**Beschreibung:**
 Schaltet den Buzzer aus und beendet alle aktiven Töne.
 
 **Response – Success (200):**
@@ -60,7 +60,7 @@ Buzzer On - /api/agv/buzzer/on
    :statuscode 200: Buzzer wurde erfolgreich eingeschaltet.
    :statuscode 400: Ungültige Anfrageparameter.
 
-**Beschreibung:**  
+**Beschreibung:**
 Schaltet den Buzzer ein und aktiviert einen Dauerton mit der angegebenen Frequenz.
 
 **Request Body – JSON:**
@@ -116,7 +116,7 @@ Beep Once - /api/agv/buzzer/beepOnce
    :statuscode 200: Piepton ausgelöst.
    :statuscode 400: Ungültige Anfrageparameter.
 
-**Beschreibung:**  
+**Beschreibung:**
 Löst einen einzelnen Piepton mit der angegebenen Frequenz für die angegebene Dauer aus.
 
 **Request Body – JSON:**
@@ -170,7 +170,7 @@ Beep Infinite - /api/agv/buzzer/beepInfinite
    :statuscode 200: Dauerpiepen gestartet.
    :statuscode 400: Ungültige Anfrageparameter.
 
-**Beschreibung:**  
+**Beschreibung:**
 Startet ein dauerhaftes Piepen mit der angegebenen Frequenz, das erst durch ``/off`` beendet wird.
 
 **Request Body – JSON:**
@@ -217,7 +217,7 @@ Beep N-times - /api/agv/buzzer/beepNTimes
    :statuscode 200: Sequenz ausgelöst.
    :statuscode 400: Ungültige Anfrageparameter.
 
-**Beschreibung:**  
+**Beschreibung:**
 Löst mehrere Pieptöne hintereinander aus.
 
 **Request Body – JSON:**
