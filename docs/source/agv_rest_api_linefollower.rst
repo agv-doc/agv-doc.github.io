@@ -88,10 +88,10 @@ Die Sensorwerte des Line Followers werden intern alle 10ms aktuallisiert.
 
 .. _post-api-agv-line-follower-enable:
 
-ine Follower Sensors – /api/agv/linefollower/enable
+Line Follower Sensors – /api/agv/linefollower/enable
 -----------------------------------------------------
 
-.. http:get:: /api/agv/linefollower/enable
+.. http:post:: /api/agv/linefollower/enable
 
    :synopsis: Aktiviert oder deaktiviert das Line Follower-Modul.
    :reqheader Accept: application/json
@@ -147,8 +147,8 @@ Set Sample Delta Time – /api/agv/linefollower/setSampleDeltaTime
    :statuscode 400: Ungültiger Datentyp oder Wert im Request.
 
 **Beschreibung:**
-Setzt das Zeit zwischen zwei Anfragen der Line Follower Daten.
-Daraus ergibt sich die Frequenz mit, welcher die Daten aktuallisiert werden.
+Legt fest, in welchem zeitlichen Abstand die Firmware die Werte des Line-Follower-Sensors per Polling abfragt.
+Aus diesem Intervall ergibt sich die Frequenz, mit der die Sensordaten aktualisiert werden.
 
 **Request Body – JSON:**
 
