@@ -6,19 +6,19 @@ Entry-Points: Buzzer
 
 **EntryPoints:**
 
-- :ref:`GET /api/agv/buzzer/off <get-api-agv-buzzer-off>`
+- :ref:`POST /api/agv/buzzer/off <post-api-agv-buzzer-off>`
 - :ref:`POST /api/agv/buzzer/on <post-api-agv-buzzer-on>`
 - :ref:`POST /api/agv/buzzer/beepOnce <post-api-agv-buzzer-beeponce>`
 - :ref:`POST /api/agv/buzzer/beepInfinite <post-api-agv-buzzer-beepinfinite>`
 - :ref:`POST /api/agv/buzzer/beepNTimes <post-api-agv-buzzer-beepntimes>`
 
 
-.. _get-api-agv-buzzer-off:
+.. _post-api-agv-buzzer-off:
 
 Buzzer Off - /api/agv/buzzer/off
 --------------------------------
 
-.. http:get:: /api/agv/buzzer/off
+.. http:post:: /api/agv/buzzer/off
 
    :synopsis: Schaltet den Buzzer aus.
    :reqheader Content-Type: application/json
