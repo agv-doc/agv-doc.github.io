@@ -25,10 +25,10 @@ LED Off – /api/agv/led/off
    :resheader Content-Type: application/json
    :statuscode 200: LED ausgeschaltet.
 
-**Beschreibung:**  
+**Beschreibung:**
 Schaltet die LED sofort aus.
 
-**Request Body – JSON:**  
+**Request Body – JSON:**
 
 *leer*
 
@@ -57,15 +57,15 @@ LED On – /api/agv/led/on
    :statuscode 200: LED eingeschaltet.
    :statuscode 400: Ungültiger Wert/Typ.
 
-**Beschreibung:**  
+**Beschreibung:**
 Schaltet die LED dauerhaft in der angegebenen Farbe ein.
 
 **Request Body – JSON:**
 
 .. code-block:: json
 
-    { 
-      "color": "red" 
+    {
+      "color": "red"
     }
 
 **Response – Success (200):**
@@ -107,16 +107,16 @@ LED Flash Once – /api/agv/led/flashOnce
    :statuscode 200: Flash ausgeführt.
    :statuscode 400: Ungültige Werte/Typen.
 
-**Beschreibung:**  
+**Beschreibung:**
 Schaltet die LED für die angegebene Zeit ein und danach wieder aus.
 
 **Request Body – JSON:**
 
 .. code-block:: json
 
-    { 
-      "color": "yellow", 
-      "duration_ms": 750 
+    {
+      "color": "yellow",
+      "duration_ms": 750
     }
 
 **Response – Success (200):**
@@ -158,17 +158,17 @@ LED Flash Infinite – /api/agv/led/flashInfinite
    :statuscode 200: Blinksequenz gestartet.
    :statuscode 400: Ungültige Werte/Typen.
 
-**Beschreibung:**  
-Startet ein endloses Blinken in der gewählten Farbe und Frequenz.  
+**Beschreibung:**
+Startet ein endloses Blinken in der gewählten Farbe und Frequenz.
 Zum Stoppen kann z. B. :ref:`/api/agv/led/off <get-api-agv-led-off>` genutzt werden.
 
 **Request Body – JSON:**
 
 .. code-block:: json
 
-    { 
-      "color": "cyan", 
-      "flashFrequency_Hz": 2.5 
+    {
+      "color": "cyan",
+      "flashFrequency_Hz": 2.5
     }
 
 **Response – Success (200):**
@@ -211,17 +211,17 @@ LED Flash N-times – /api/agv/led/flashNTimes
    :statuscode 200: Blinksequenz gestartet.
    :statuscode 400: Ungültige Werte/Typen.
 
-**Beschreibung:**  
+**Beschreibung:**
 Blinkt die LED genau ``numOfFlashes``-mal in der angegebenen Farbe mit der gewünschten Frequenz.
 
 **Request Body – JSON:**
 
 .. code-block:: json
 
-    { 
-      "flashFrequency_Hz": 4, 
-      "numOfFlashes": 6, 
-      "color": "magenta" 
+    {
+      "flashFrequency_Hz": 4,
+      "numOfFlashes": 6,
+      "color": "magenta"
     }
 
 **Response – Success (200):**
