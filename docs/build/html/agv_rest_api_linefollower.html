@@ -128,7 +128,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: Line Follower</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#line-follower-sensors-api-agv-linefollower-settings">Line Follower Sensors – /api/agv/linefollower/settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#line-follower-sensors-api-agv-linefollower-sensors">Line Follower Sensors – /api/agv/linefollower/sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ine-follower-sensors-api-agv-linefollower-enable">ine Follower Sensors – /api/agv/linefollower/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-follower-sensors-api-agv-linefollower-enable">Line Follower Sensors – /api/agv/linefollower/enable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-sample-delta-time-api-agv-linefollower-setsampledeltatime">Set Sample Delta Time – /api/agv/linefollower/setSampleDeltaTime</a></li>
 </ul>
 </li>
@@ -268,11 +268,11 @@ Die Sensorwerte des Line Followers werden intern alle 10ms aktuallisiert.</p>
 </ul>
 </div></blockquote>
 </section>
-<section id="ine-follower-sensors-api-agv-linefollower-enable">
-<span id="post-api-agv-line-follower-enable"></span><h2>ine Follower Sensors – /api/agv/linefollower/enable<a class="headerlink" href="#ine-follower-sensors-api-agv-linefollower-enable" title="Link to this heading"></a></h2>
-<dl class="http get">
-<dt class="sig sig-object http" id="get--api-agv-linefollower-enable">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/linefollower/enable</span></span><a class="headerlink" href="#get--api-agv-linefollower-enable" title="Link to this definition"></a></dt>
+<section id="line-follower-sensors-api-agv-linefollower-enable">
+<span id="post-api-agv-line-follower-enable"></span><h2>Line Follower Sensors – /api/agv/linefollower/enable<a class="headerlink" href="#line-follower-sensors-api-agv-linefollower-enable" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-agv-linefollower-enable">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/agv/linefollower/enable</span></span><a class="headerlink" href="#post--api-agv-linefollower-enable" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Synopsis<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Aktiviert oder deaktiviert das Line Follower-Modul.</p>
@@ -356,8 +356,8 @@ Die Sensorwerte des Line Followers werden intern alle 10ms aktuallisiert.</p>
 </dd></dl>
 
 <p><strong>Beschreibung:</strong>
-Setzt das Zeit zwischen zwei Anfragen der Line Follower Daten.
-Daraus ergibt sich die Frequenz mit, welcher die Daten aktuallisiert werden.</p>
+Legt fest, in welchem zeitlichen Abstand die Firmware die Werte des Line-Follower-Sensors per Polling abfragt.
+Aus diesem Intervall ergibt sich die Frequenz, mit der die Sensordaten aktualisiert werden.</p>
 <p><strong>Request Body – JSON:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;sampleDeltaTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
