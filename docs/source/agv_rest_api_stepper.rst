@@ -40,9 +40,9 @@ Set Velocity (beide) – /api/agv/stepper/setVelocity
 
 .. code-block:: json
 
-    { 
-     "velLeft_perc": -20.0, 
-     "velRight_perc": 20.0 
+    {
+     "velLeft_perc": -20.0,
+     "velRight_perc": 20.0
     }
 
 **Response – Success (200):**
@@ -52,8 +52,8 @@ Set Velocity (beide) – /api/agv/stepper/setVelocity
    {
      "code": 200,
      "status": "success",
-     "data": { "velLeft_perc": -20.0, 
-               "velRight_perc": 20.0 
+     "data": { "velLeft_perc": -20.0,
+               "velRight_perc": 20.0
               }
    }
 
@@ -81,8 +81,8 @@ Enable/Disable – /api/agv/stepper/enable
 
 .. code-block:: json
 
-    { 
-     "stepper": "on" 
+    {
+     "stepper": "on"
     }
 
 **Response – Success (200):**
@@ -132,7 +132,7 @@ Motion Mode – /api/agv/stepper/motionMode
    :resheader Content-Type: application/json
    :statuscode 200: Modus geliefert.
 
-**Beschreibung:**  
+**Beschreibung:**
 Mögliche Werte: ``"idle"``, ``"velocity"``, ``"position"``, ``"position_planning"``, ``"mode_unknown"``.
 
 **Response – Success (200):**
@@ -206,7 +206,7 @@ Get Current Velocity – /api/agv/stepper/getCurrentVelocity
    :resheader Content-Type: application/json
    :statuscode 200: Geschwindigkeiten geliefert.
 
-**Beschreibung:**  
+**Beschreibung:**
 
 Die Einheit ist **rad/s**. Zusätzlich wird die konfigurierte Maximalgeschwindigkeit mitgeliefert.
 
@@ -237,7 +237,7 @@ Get Current Position – /api/agv/stepper/getCurrentPosition
    :resheader Content-Type: application/json
    :statuscode 200: Position geliefert.
 
-**Beschreibung:**  
+**Beschreibung:**
 
 Die Einheit ist **Steps**; zusätzlich wird ``stepsPerRevolution`` mitgeliefert.
 
@@ -277,7 +277,7 @@ Set Velocity (einzeln) – /api/agv/stepper/setVelocitySingle
 .. code-block:: json
 
     { "vel_perc": 35.0,
-    "stepper": "left" 
+    "stepper": "left"
     }
 
 **Response – Success (200):**
@@ -309,15 +309,15 @@ Set Max Velocity % – /api/agv/stepper/setMaxVelocityPerc
    :statuscode 200: Maximalgeschwindigkeit gesetzt.
    :statuscode 400: Ungültiger Wert/Typ oder Motoren bewegen sich (State).
 
-**Beschreibung:**  
+**Beschreibung:**
 Wenn die Motoren noch laufen, kann die Maximalgeschwindigkeit nicht gesetzt werden.
 
 **Request Body – JSON:**
 
 .. code-block:: json
 
-   { 
-     "maxVel_perc": 80.0 
+   {
+     "maxVel_perc": 80.0
    }
 
 **Response – Success (200):**
@@ -357,8 +357,8 @@ Set Max Acceleration % – /api/agv/stepper/setMaxAccelerationPerc
 
 .. code-block:: json
 
-   { 
-     "maxAcc_perc": 60.0 
+   {
+     "maxAcc_perc": 60.0
    }
 
 **Response – Success (200):**
@@ -399,9 +399,9 @@ Move Absolute – /api/agv/stepper/setMoveAbsolute
 
 .. code-block:: json
 
-   { 
-     "leftPos_steps": 1200, 
-     "rightPos_steps": -800 
+   {
+     "leftPos_steps": 1200,
+     "rightPos_steps": -800
     }
 
 **Response – Success (200):**
@@ -411,9 +411,9 @@ Move Absolute – /api/agv/stepper/setMoveAbsolute
    {
      "code": 200,
      "status": "success",
-     "data": { 
+     "data": {
                 "leftPos_steps": 1200,
-                "rightPos_steps": -800 
+                "rightPos_steps": -800
               }
    }
 
@@ -442,9 +442,9 @@ Move Relative – /api/agv/stepper/setMoveRelative
 
 .. code-block:: json
 
-    { 
-     "leftDelta_steps": -200, 
-     "rightDelta_steps": 200 
+    {
+     "leftDelta_steps": -200,
+     "rightDelta_steps": 200
     }
 
 **Response – Success (200):**
