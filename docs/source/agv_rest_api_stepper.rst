@@ -11,7 +11,7 @@ Entry-Points: Stepper
 - :ref:`GET /api/agv/stepper/isMoving <get-api-agv-stepper-ismoving>`
 - :ref:`GET /api/agv/stepper/motionMode <get-api-agv-stepper-motionmode>`
 - :ref:`GET /api/agv/stepper/abortMotion <get-api-agv-stepper-abortmotion>`
-- :ref:`GET /api/agv/stepper/resetPosition <get-api-agv-stepper-resetposition>`
+- :ref:`POST /api/agv/stepper/resetPosition <post-api-agv-stepper-resetposition>`
 - :ref:`GET /api/agv/stepper/getCurrentVelocity <get-api-agv-stepper-getcurrentvelocity>`
 - :ref:`GET /api/agv/stepper/getCurrentPosition <get-api-agv-stepper-getcurrentposition>`
 - :ref:`POST /api/agv/stepper/setVelocitySingle <post-api-agv-stepper-setvelocitysingle>`
@@ -168,12 +168,12 @@ Abort Motion – /api/agv/stepper/abortMotion
    }
 
 
-.. _get-api-agv-stepper-resetposition:
+.. _post-api-agv-stepper-resetposition:
 
 Reset Position – /api/agv/stepper/resetPosition
 -----------------------------------------------
 
-.. http:get:: /api/agv/stepper/resetPosition
+.. http:post:: /api/agv/stepper/resetPosition
 
    :synopsis: Setzt die aktuelle Position beider Motoren zurück.
    :resheader Content-Type: application/json
