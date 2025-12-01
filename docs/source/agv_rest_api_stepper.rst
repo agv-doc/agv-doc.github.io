@@ -10,7 +10,7 @@ Entry-Points: Stepper
 - :ref:`POST /api/agv/stepper/enable <post-api-agv-stepper-enable>`
 - :ref:`GET /api/agv/stepper/isMoving <get-api-agv-stepper-ismoving>`
 - :ref:`GET /api/agv/stepper/motionMode <get-api-agv-stepper-motionmode>`
-- :ref:`GET /api/agv/stepper/abortMotion <get-api-agv-stepper-abortmotion>`
+- :ref:`POST /api/agv/stepper/abortMotion <post-api-agv-stepper-abortmotion>`
 - :ref:`POST /api/agv/stepper/resetPosition <post-api-agv-stepper-resetposition>`
 - :ref:`GET /api/agv/stepper/getCurrentVelocity <get-api-agv-stepper-getcurrentvelocity>`
 - :ref:`GET /api/agv/stepper/getCurrentPosition <get-api-agv-stepper-getcurrentposition>`
@@ -146,12 +146,12 @@ Mögliche Werte: ``"idle"``, ``"velocity"``, ``"position"``, ``"position_plannin
    }
 
 
-.. _get-api-agv-stepper-abortmotion:
+.. _post-api-agv-stepper-abortmotion:
 
 Abort Motion – /api/agv/stepper/abortMotion
 -------------------------------------------
 
-.. http:get:: /api/agv/stepper/abortMotion
+.. http:post:: /api/agv/stepper/abortMotion
 
    :synopsis: Bricht die aktuelle Bewegung ab.
    :resheader Content-Type: application/json
