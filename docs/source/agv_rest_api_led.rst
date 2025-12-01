@@ -6,7 +6,7 @@ Entry-Points: LED
 
 **EntryPoints:**
 
-- :ref:`GET /api/agv/led/off <get-api-agv-led-off>`
+- :ref:`POST /api/agv/led/off <get-api-agv-led-off>`
 - :ref:`POST /api/agv/led/on <post-api-agv-led-on>`
 - :ref:`POST /api/agv/led/flashOnce <post-api-agv-led-flashonce>`
 - :ref:`POST /api/agv/led/flashInfinite <post-api-agv-led-flashinfinite>`
@@ -18,7 +18,7 @@ Entry-Points: LED
 LED Off – /api/agv/led/off
 --------------------------
 
-.. http:get:: /api/agv/led/off
+.. http:post:: /api/agv/led/off
 
    :synopsis: Schaltet die LED aus.
    :reqheader Accept: application/json
