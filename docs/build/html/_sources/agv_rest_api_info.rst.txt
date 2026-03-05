@@ -10,6 +10,7 @@ Entry-Points: Info
 - :ref:`GET /api/info/esp32/chip <get-api-info-esp32-chip>`
 - :ref:`GET /api/info/esp32/network <get-api-info-esp32-network>`
 - :ref:`GET /api/info/esp32/partitions <get-api-info-esp32-partitions>`
+- :ref:`GET /api/info/esp32/tasks <get-api-info-esp32-tasks>`
 
 
 .. _get-api-info-agv:
@@ -24,8 +25,8 @@ AGV Info – /api/info/agv
    :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
-**Beschreibung:**  
-Dieser Endpunkt liefert allgemeine Systeminformationen über das AGV,  
+**Beschreibung:**
+Dieser Endpunkt liefert allgemeine Systeminformationen über das AGV,
 darunter Betriebszeit, Name, eindeutige ID und Firmware-Details.
 
 **Response – Success (200):**
@@ -48,16 +49,16 @@ darunter Betriebszeit, Name, eindeutige ID und Firmware-Details.
      }
    }
 
-**Felder (``data``)**  
+**Felder (``data``)**
 
-- ``uptime_sec`` *(float)* – Laufzeit des Systems in Sekunden.  
-- ``agv_name`` *(string)* – Aktuell konfigurierter Name des AGV.  
-- ``agv_uniqueID`` *(string)* – Eindeutige Identifikationsnummer des AGV (optional).  
+- ``uptime_sec`` *(float)* – Laufzeit des Systems in Sekunden.
+- ``agv_name`` *(string)* – Aktuell konfigurierter Name des AGV.
+- ``agv_uniqueID`` *(string)* – Eindeutige Identifikationsnummer des AGV (optional).
 
-- **firmware** *(object)* – Firmware-Informationen  
-   - ``compile_date`` *(string)* – Kompilierungsdatum (TT-MM-JJ).  
-   - ``compile_time`` *(string)* – Kompilierungszeit (HH:MM).  
-   - ``compile_datetime`` *(string)* – Kombination aus Datum und Zeit.  
+- **firmware** *(object)* – Firmware-Informationen
+   - ``compile_date`` *(string)* – Kompilierungsdatum (TT-MM-JJ).
+   - ``compile_time`` *(string)* – Kompilierungszeit (HH:MM).
+   - ``compile_datetime`` *(string)* – Kombination aus Datum und Zeit.
    - ``version`` *(string)* – Firmware-Versionsnummer.
 
 
@@ -74,9 +75,9 @@ ESP32 Chip Info – /api/info/esp32/chip
    :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
-**Beschreibung:**  
-Dieser Endpunkt liefert detaillierte Hardware- und Systeminformationen über den ESP32-Chip,  
-einschließlich Speicher, CPU, Flash-Parameter, Chip-Details und des letzten Reset-Grundes.  
+**Beschreibung:**
+Dieser Endpunkt liefert detaillierte Hardware- und Systeminformationen über den ESP32-Chip,
+einschließlich Speicher, CPU, Flash-Parameter, Chip-Details und des letzten Reset-Grundes.
 Er dient primär zu Diagnose- und Monitoring-Zwecken.
 
 **Response – Success (200):**
@@ -117,29 +118,29 @@ Er dient primär zu Diagnose- und Monitoring-Zwecken.
 
 **Felder (``data``)**
 
-- **memory** *(object)* – Speicherinformationen  
-   - ``free_heap_bytes`` *(int)* – Aktuell verfügbarer Heap-Speicher.  
-   - ``min_free_heap_bytes`` *(int)* – Minimaler Heap-Speicher während der Laufzeit.  
-   - ``max_alloc_heap_bytes`` *(int)* – Größter zusammenhängender Heap-Block.  
+- **memory** *(object)* – Speicherinformationen
+   - ``free_heap_bytes`` *(int)* – Aktuell verfügbarer Heap-Speicher.
+   - ``min_free_heap_bytes`` *(int)* – Minimaler Heap-Speicher während der Laufzeit.
+   - ``max_alloc_heap_bytes`` *(int)* – Größter zusammenhängender Heap-Block.
    - ``total_heap`` *(int)* – Gesamter verfügbarer Heap.
 
-- **cpu** *(object)* – Prozessorinformationen  
-   - ``frequency_mhz`` *(int)* – CPU-Frequenz in MHz.  
+- **cpu** *(object)* – Prozessorinformationen
+   - ``frequency_mhz`` *(int)* – CPU-Frequenz in MHz.
    - ``core_count`` *(int)* – Anzahl der CPU-Kerne.
 
-- **flash** *(object)* – Flash-Speicherparameter  
-   - ``chip_size_bytes`` *(int)* – Gesamtkapazität des Flash-Chips.  
-   - ``chip_mode`` *(int)* – Betriebsmodus des Flash (z. B. QIO/DIO).  
+- **flash** *(object)* – Flash-Speicherparameter
+   - ``chip_size_bytes`` *(int)* – Gesamtkapazität des Flash-Chips.
+   - ``chip_mode`` *(int)* – Betriebsmodus des Flash (z. B. QIO/DIO).
    - ``chip_speed_hz`` *(int)* – Taktfrequenz des Flash-Speichers.
 
-- **chip** *(object)* – Chip-spezifische Details  
-   - ``revision`` *(int)* – Hardware-Revision.  
-   - ``model`` *(string)* – Modellbezeichnung des ESP32-Chips.  
-   - ``sdk_version`` *(string)* – Version der verwendeten ESP-IDF.  
+- **chip** *(object)* – Chip-spezifische Details
+   - ``revision`` *(int)* – Hardware-Revision.
+   - ``model`` *(string)* – Modellbezeichnung des ESP32-Chips.
+   - ``sdk_version`` *(string)* – Version der verwendeten ESP-IDF.
    - ``chip_id`` *(string)* – Eindeutige Chip-ID.
 
-- **reset** *(object)* – Informationen zum letzten Reset  
-   - ``reason_id`` *(int)* – Reset-Code.  
+- **reset** *(object)* – Informationen zum letzten Reset
+   - ``reason_id`` *(int)* – Reset-Code.
    - ``reason_desc`` *(string)* – Textbeschreibung des Reset-Grundes (z. B. „Power-on Reset“).
 
 
@@ -159,8 +160,8 @@ ESP32 Network Info – /api/info/esp32/network
    :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
-**Beschreibung:**  
-Dieser Endpunkt liefert aktuelle Netzwerk- und WLAN-Parameter des ESP32,  
+**Beschreibung:**
+Dieser Endpunkt liefert aktuelle Netzwerk- und WLAN-Parameter des ESP32,
 einschließlich IP-Konfiguration, MAC-Adresse, Hostname, WLAN-SSID, RSSI und Kanal.
 
 **Response – Success (200):**
@@ -191,23 +192,23 @@ einschließlich IP-Konfiguration, MAC-Adresse, Hostname, WLAN-SSID, RSSI und Kan
      }
    }
 
-**Felder (``data``)**  
+**Felder (``data``)**
 
-- **network** *(object)* – Netzwerkparameter  
-   - ``mac_address`` *(string)* – MAC-Adresse des ESP32.  
-   - ``ip_address`` *(string)* – Aktuelle IPv4-Adresse.  
-   - ``subnet_mask`` *(string)* – Subnetzmaske.  
-   - ``ip_gateway`` *(string)* – Standard-Gateway.  
-   - ``ip_dns`` *(string)* – DNS-Server-Adresse.  
-   - ``hostname`` *(string)* – Gerätename im Netzwerk.  
+- **network** *(object)* – Netzwerkparameter
+   - ``mac_address`` *(string)* – MAC-Adresse des ESP32.
+   - ``ip_address`` *(string)* – Aktuelle IPv4-Adresse.
+   - ``subnet_mask`` *(string)* – Subnetzmaske.
+   - ``ip_gateway`` *(string)* – Standard-Gateway.
+   - ``ip_dns`` *(string)* – DNS-Server-Adresse.
+   - ``hostname`` *(string)* – Gerätename im Netzwerk.
    - ``ipv6`` *(string)* – IPv6-Adresse (falls konfiguriert).
 
-- **wifi** *(object)* – WLAN-Statusinformationen  
-   - ``rssi_dBm`` *(int)* – Empfangsfeldstärke in dBm.  
-   - ``ssid`` *(string)* – Aktuell verbundene WLAN-SSID.  
-   - ``bssid`` *(string)* – MAC-Adresse des Access Points.  
-   - ``connection_status`` *(int)* – WLAN-Verbindungsstatuscode.  
-   - ``wifi_mode`` *(int)* – WLAN-Betriebsmodus (z. B. Station, AP, etc.).  
+- **wifi** *(object)* – WLAN-Statusinformationen
+   - ``rssi_dBm`` *(int)* – Empfangsfeldstärke in dBm.
+   - ``ssid`` *(string)* – Aktuell verbundene WLAN-SSID.
+   - ``bssid`` *(string)* – MAC-Adresse des Access Points.
+   - ``connection_status`` *(int)* – WLAN-Verbindungsstatuscode.
+   - ``wifi_mode`` *(int)* – WLAN-Betriebsmodus (z. B. Station, AP, etc.).
    - ``channel`` *(int)* – Aktueller WLAN-Kanal.
 
 
@@ -227,8 +228,8 @@ ESP32 Partition Info – /api/info/esp32/partitions
    :resheader Content-Type: application/json
    :statuscode 200: Informationen erfolgreich abgerufen.
 
-**Beschreibung:**  
-Dieser Endpunkt gibt eine Liste aller Partitionen des Flash-Speichers zurück,  
+**Beschreibung:**
+Dieser Endpunkt gibt eine Liste aller Partitionen des Flash-Speichers zurück,
 einschließlich Start- und Endadressen, Typ, Größe und Verschlüsselungsstatus.
 
 **Response – Success (200):**
@@ -294,16 +295,64 @@ einschließlich Start- und Endadressen, Typ, Größe und Verschlüsselungsstatus
      }
    }
 
-**Felder (``data``)**  
+**Felder (``data``)**
 
-- **partitions** *(array)* – Liste der Partitionseinträge.  
+- **partitions** *(array)* – Liste der Partitionseinträge.
   Jeder Eintrag enthält folgende Felder:
 
-   - ``name`` *(string)* – Name der Partition.  
-   - ``type`` *(string)* – Typ der Partition (z. B. ``app`` oder ``data``).  
-   - ``subtype`` *(string)* – Untertyp der Partition (z. B. ``nvs``, ``spiffs``).  
-   - ``address_begin`` *(string)* – Startadresse im Flash.  
-   - ``address_end`` *(string)* – Endadresse im Flash.  
-   - ``size_bytes`` *(int)* – Größe der Partition in Bytes.  
-   - ``size_hex_bytes`` *(string)* – Größe in hexadezimaler Schreibweise.  
+   - ``name`` *(string)* – Name der Partition.
+   - ``type`` *(string)* – Typ der Partition (z. B. ``app`` oder ``data``).
+   - ``subtype`` *(string)* – Untertyp der Partition (z. B. ``nvs``, ``spiffs``).
+   - ``address_begin`` *(string)* – Startadresse im Flash.
+   - ``address_end`` *(string)* – Endadresse im Flash.
+   - ``size_bytes`` *(int)* – Größe der Partition in Bytes.
+   - ``size_hex_bytes`` *(string)* – Größe in hexadezimaler Schreibweise.
    - ``encrypted`` *(string)* – Gibt an, ob die Partition verschlüsselt ist (``"yes"``/``"no"``).
+
+
+.. _get-api-info-esp32-tasks:
+
+ESP32 Tasks Information – /api/info/esp32/tasks
+-----------------------------------------------
+
+.. http:get:: /api/info/esp32/tasks
+
+   :synopsis: Liefert FreeRTOS-Task- und Reset-Informationen des ESP32.
+   :reqheader Accept: application/json
+   :resheader Content-Type: application/json
+   :statuscode 200: Informationen erfolgreich abgerufen.
+
+**Beschreibung:**
+Dieser Endpunkt liefert Informationen über FreeRTOS-Tasks und den letzten Reset-Grund des ESP32.
+
+**Response – Success (200):**
+
+.. code-block:: json
+
+   {
+     "code": 200,
+     "status": "success",
+     "memory": {},
+     "reset": {
+       "reset_reason": 1
+     }
+   }
+
+**Felder**
+
+- ``reset.reset_reason`` *(integer)* – Numerischer Code des letzten Reset-Grundes.
+
+**Reset-Gründe-Referenz:**
+
+Die möglichen Reset-Grund-Codes sind:
+
+- ``0`` – Power-on Reset
+- ``1`` – External Reset
+- ``2`` – Watchdog Reset
+- ``3`` – Software Reset
+- ``4`` – RTC Reset
+- ``5`` – Deep Sleep Reset
+
+**Hinweis:**
+Die detaillierten Task-Informationen (Taskname, Stack-Größe, Priorität) sind derzeit nicht aktiviert
+und können bei Bedarf im Backend freigeschaltet werden.
