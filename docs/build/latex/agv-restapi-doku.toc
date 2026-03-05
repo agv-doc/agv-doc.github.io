@@ -1,0 +1,68 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}AGV \textendash {} REST API Dokumentation}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Allgemeines}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Top\sphinxhyphen {}Level\sphinxhyphen {}Felder der API\sphinxhyphen {}Antworten}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Antwortmodelle}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Konventionen für Requests}{4}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Entry\sphinxhyphen {}Points: Common}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Ping \sphinxhyphen {} /api/agv/common/ping}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Identify \sphinxhyphen {} /api/agv/common/identify}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Restart \sphinxhyphen {} /api/agv/common/restart}{7}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Entry\sphinxhyphen {}Points: Buzzer}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Buzzer Off \sphinxhyphen {} /api/agv/buzzer/off}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Buzzer On \sphinxhyphen {} /api/agv/buzzer/on}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Beep Once \sphinxhyphen {} /api/agv/buzzer/beepOnce}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Beep Infinite \sphinxhyphen {} /api/agv/buzzer/beepInfinite}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Beep N\sphinxhyphen {}times \sphinxhyphen {} /api/agv/buzzer/beepNTimes}{13}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Entry\sphinxhyphen {}Points: I2C Scanner}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}I2C Device Scanner \sphinxhyphen {} /api/agv/i2c/scan}{15}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Entry\sphinxhyphen {}Points: Info}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}AGV Info \textendash {} /api/info/agv}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}ESP32 Chip Info \textendash {} /api/info/esp32/chip}{18}{section.5.2}%
+\contentsline {section}{\numberline {5.3}ESP32 Network Info \textendash {} /api/info/esp32/network}{20}{section.5.3}%
+\contentsline {section}{\numberline {5.4}ESP32 Partition Info \textendash {} /api/info/esp32/partitions}{21}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Entry\sphinxhyphen {}Points: Stepper}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Set Velocity (beide) \textendash {} /api/agv/stepper/setVelocity}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Enable/Disable \textendash {} /api/agv/stepper/enable}{26}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Is Moving \textendash {} /api/agv/stepper/isMoving}{27}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Motion Mode \textendash {} /api/agv/stepper/motionMode}{27}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Abort Motion \textendash {} /api/agv/stepper/abortMotion}{28}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Reset Position \textendash {} /api/agv/stepper/resetPosition}{28}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Get Current Velocity \textendash {} /api/agv/stepper/getCurrentVelocity}{29}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Get Current Position \textendash {} /api/agv/stepper/getCurrentPosition}{29}{section.6.8}%
+\contentsline {section}{\numberline {6.9}Set Velocity (einzeln) \textendash {} /api/agv/stepper/setVelocitySingle}{30}{section.6.9}%
+\contentsline {section}{\numberline {6.10}Set Max Velocity \% \textendash {} /api/agv/stepper/setMaxVelocityPerc}{30}{section.6.10}%
+\contentsline {section}{\numberline {6.11}Set Max Acceleration \% \textendash {} /api/agv/stepper/setMaxAccelerationPerc}{31}{section.6.11}%
+\contentsline {section}{\numberline {6.12}Move Absolute \textendash {} /api/agv/stepper/setMoveAbsolute}{32}{section.6.12}%
+\contentsline {section}{\numberline {6.13}Move Relative \textendash {} /api/agv/stepper/setMoveRelative}{33}{section.6.13}%
+\contentsline {chapter}{\numberline {7}Entry\sphinxhyphen {}Points: PWM}{35}{chapter.7}%
+\contentsline {section}{\numberline {7.1}PWM Settings \textendash {} /api/agv/pwm/settings}{35}{section.7.1}%
+\contentsline {section}{\numberline {7.2}PWM Enable \textendash {} /api/agv/pwm/enable}{37}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Set Active Servos \textendash {} /api/agv/pwm/setActiveServos}{38}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Set Channel Position \textendash {} /api/agv/pwm/channel/setPosition}{38}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Set Channel Limits \textendash {} /api/agv/pwm/channel/setLimits}{39}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Set Channel Start Position \textendash {} /api/agv/pwm/channel/setStartPosition}{40}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Set Channel Full Sweep Time \textendash {} /api/agv/pwm/channel/setFullSweepTime}{41}{section.7.7}%
+\contentsline {chapter}{\numberline {8}Entry\sphinxhyphen {}Points: LED}{43}{chapter.8}%
+\contentsline {section}{\numberline {8.1}LED Off \textendash {} /api/agv/led/off}{43}{section.8.1}%
+\contentsline {section}{\numberline {8.2}LED On \textendash {} /api/agv/led/on}{44}{section.8.2}%
+\contentsline {section}{\numberline {8.3}LED Flash Once \textendash {} /api/agv/led/flashOnce}{45}{section.8.3}%
+\contentsline {section}{\numberline {8.4}LED Flash Infinite \textendash {} /api/agv/led/flashInfinite}{46}{section.8.4}%
+\contentsline {section}{\numberline {8.5}LED Flash N\sphinxhyphen {}times \textendash {} /api/agv/led/flashNTimes}{47}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Entry\sphinxhyphen {}Points: WiFi}{49}{chapter.9}%
+\contentsline {section}{\numberline {9.1}WiFi Settings \textendash {} /api/agv/wifi/getWifiSettings}{49}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Set Active WiFi Mode \textendash {} /api/agv/wifi/setActiveMode}{50}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Set WiFi Mode Data \textendash {} /api/agv/wifi/setModeData}{51}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Entry\sphinxhyphen {}Points: WhereIsMyAGV}{53}{chapter.10}%
+\contentsline {section}{\numberline {10.1}WhereIsMyAGV Status \textendash {} /api/agv/whereIsMyAGV/status}{53}{section.10.1}%
+\contentsline {section}{\numberline {10.2}WhereIsMyAGV Enable \textendash {} /api/agv/whereIsMyAGV/enable}{54}{section.10.2}%
+\contentsline {section}{\numberline {10.3}WhereIsMyAGV Settings \textendash {} /api/agv/whereIsMyAGV/settings}{55}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Entry\sphinxhyphen {}Points: NVS (Non\sphinxhyphen {}Volatile Storage)}{57}{chapter.11}%
+\contentsline {section}{\numberline {11.1}List NVS Namespaces \textendash {} /api/nve/namespaces}{57}{section.11.1}%
+\contentsline {section}{\numberline {11.2}List Keys and Values \textendash {} /api/nve/listKeysAndValues}{58}{section.11.2}%
+\contentsline {chapter}{\numberline {12}Entry\sphinxhyphen {}Points: Line Follower}{61}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Line Follower Sensors \textendash {} /api/agv/linefollower/settings}{61}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Line Follower Sensors \textendash {} /api/agv/linefollower/sensors}{62}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Line Follower Sensors \textendash {} /api/agv/linefollower/enable}{62}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Set Sample Delta Time \textendash {} /api/agv/linefollower/setSampleDeltaTime}{63}{section.12.4}%
+\contentsline {chapter}{HTTP Routing Table}{65}{section*.53}%
