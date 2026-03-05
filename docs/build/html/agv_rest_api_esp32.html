@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry-Points: ESP32 System Information &mdash; AGV-RestAPI-Doku 1.1.x documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=18f8d057"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Entry-Points: Info" href="agv_rest_api_info.html" />
+    <link rel="prev" title="Entry-Points: I2C Scanner" href="agv_rest_api_i2c.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AGV-RestAPI-Doku
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inhalt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agv_overview.html">AGV – REST API Dokumentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#allgemeines">Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#top-level-felder-der-api-antworten">Top-Level-Felder der API-Antworten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#antwortmodelle">Antwortmodelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_overview.html#konventionen-fur-requests">Konventionen für Requests</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REST-API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_common.html">Entry-Points: Common</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_common.html#ping-api-agv-common-ping">Ping - /api/agv/common/ping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_common.html#post-api-agv-common-identify">Identify - /api/agv/common/identify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_common.html#restart-api-agv-common-restart">Restart - /api/agv/common/restart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_buzzer.html">Entry-Points: Buzzer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#buzzer-off-api-agv-buzzer-off">Buzzer Off - /api/agv/buzzer/off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#buzzer-on-api-agv-buzzer-on">Buzzer On - /api/agv/buzzer/on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-once-api-agv-buzzer-beeponce">Beep Once - /api/agv/buzzer/beepOnce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-infinite-api-agv-buzzer-beepinfinite">Beep Infinite - /api/agv/buzzer/beepInfinite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-n-times-api-agv-buzzer-beepntimes">Beep N-times - /api/agv/buzzer/beepNTimes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_i2c.html">Entry-Points: I2C Scanner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_i2c.html#i2c-device-scanner-api-agv-i2c-scan">I2C Device Scanner - /api/agv/i2c/scan</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: ESP32 System Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#esp32-chip-system-information-api-agv-info-esp32-chip">ESP32 Chip &amp; System Information - /api/agv/info/esp32/chip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-information-api-agv-info-esp32-network">Network Information - /api/agv/info/esp32/network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#partition-information-api-agv-info-esp32-partitions">Partition Information - /api/agv/info/esp32/partitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#freertos-task-information-api-agv-info-esp32-tasks">FreeRTOS Task Information - /api/agv/info/esp32/tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#agv-info-api-info-agv">AGV Info – /api/info/agv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#esp32-chip-info-api-info-esp32-chip">ESP32 Chip Info – /api/info/esp32/chip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#esp32-network-info-api-info-esp32-network">ESP32 Network Info – /api/info/esp32/network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_info.html#esp32-partition-info-api-info-esp32-partitions">ESP32 Partition Info – /api/info/esp32/partitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-velocity-beide-api-agv-stepper-setvelocity">Set Velocity (beide) – /api/agv/stepper/setVelocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#enable-disable-api-agv-stepper-enable">Enable/Disable – /api/agv/stepper/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#is-moving-api-agv-stepper-ismoving">Is Moving – /api/agv/stepper/isMoving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#motion-mode-api-agv-stepper-motionmode">Motion Mode – /api/agv/stepper/motionMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#abort-motion-api-agv-stepper-abortmotion">Abort Motion – /api/agv/stepper/abortMotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#reset-position-api-agv-stepper-resetposition">Reset Position – /api/agv/stepper/resetPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#get-current-velocity-api-agv-stepper-getcurrentvelocity">Get Current Velocity – /api/agv/stepper/getCurrentVelocity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#get-current-position-api-agv-stepper-getcurrentposition">Get Current Position – /api/agv/stepper/getCurrentPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-velocity-einzeln-api-agv-stepper-setvelocitysingle">Set Velocity (einzeln) – /api/agv/stepper/setVelocitySingle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-max-velocity-api-agv-stepper-setmaxvelocityperc">Set Max Velocity % – /api/agv/stepper/setMaxVelocityPerc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#set-max-acceleration-api-agv-stepper-setmaxaccelerationperc">Set Max Acceleration % – /api/agv/stepper/setMaxAccelerationPerc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#move-absolute-api-agv-stepper-setmoveabsolute">Move Absolute – /api/agv/stepper/setMoveAbsolute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_stepper.html#move-relative-api-agv-stepper-setmoverelative">Move Relative – /api/agv/stepper/setMoveRelative</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_pwm.html">Entry-Points: PWM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#pwm-settings-api-agv-pwm-settings">PWM Settings – /api/agv/pwm/settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#pwm-enable-api-agv-pwm-enable">PWM Enable – /api/agv/pwm/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-active-servos-api-agv-pwm-setactiveservos">Set Active Servos – /api/agv/pwm/setActiveServos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-position-api-agv-pwm-channel-setposition">Set Channel Position – /api/agv/pwm/channel/setPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-limits-api-agv-pwm-channel-setlimits">Set Channel Limits – /api/agv/pwm/channel/setLimits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-start-position-api-agv-pwm-channel-setstartposition">Set Channel Start Position – /api/agv/pwm/channel/setStartPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_pwm.html#set-channel-full-sweep-time-api-agv-pwm-channel-setfullsweeptime">Set Channel Full Sweep Time – /api/agv/pwm/channel/setFullSweepTime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_led.html">Entry-Points: LED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-off-api-agv-led-off">LED Off – /api/agv/led/off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-on-api-agv-led-on">LED On – /api/agv/led/on</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-flash-once-api-agv-led-flashonce">LED Flash Once – /api/agv/led/flashOnce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-flash-infinite-api-agv-led-flashinfinite">LED Flash Infinite – /api/agv/led/flashInfinite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_led.html#led-flash-n-times-api-agv-led-flashntimes">LED Flash N-times – /api/agv/led/flashNTimes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wifi.html">Entry-Points: WiFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wifi.html#wifi-settings-api-agv-wifi-getwifisettings">WiFi Settings – /api/agv/wifi/getWifiSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wifi.html#set-active-wifi-mode-api-agv-wifi-setactivemode">Set Active WiFi Mode – /api/agv/wifi/setActiveMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wifi.html#set-wifi-mode-data-api-agv-wifi-setmodedata">Set WiFi Mode Data – /api/agv/wifi/setModeData</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_wima.html">Entry-Points: WhereIsMyAGV</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-status-api-agv-whereismyagv-status">WhereIsMyAGV Status – /api/agv/whereIsMyAGV/status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-enable-api-agv-whereismyagv-enable">WhereIsMyAGV Enable – /api/agv/whereIsMyAGV/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-settings-api-agv-whereismyagv-settings">WhereIsMyAGV Settings – /api/agv/whereIsMyAGV/settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_nve.html">Entry-Points: NVS (Non-Volatile Storage)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-nvs-namespaces-api-nve-namespaces">List NVS Namespaces – /api/nve/namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-keys-and-values-api-nve-listkeysandvalues">List Keys and Values – /api/nve/listKeysAndValues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_linefollower.html">Entry-Points: Line Follower</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#line-follower-sensors-api-agv-linefollower-settings">Line Follower Sensors – /api/agv/linefollower/settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#line-follower-sensors-api-agv-linefollower-sensors">Line Follower Sensors – /api/agv/linefollower/sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#line-follower-sensors-api-agv-linefollower-enable">Line Follower Sensors – /api/agv/linefollower/enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_linefollower.html#set-sample-delta-time-api-agv-linefollower-setsampledeltatime">Set Sample Delta Time – /api/agv/linefollower/setSampleDeltaTime</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AGV-RestAPI-Doku</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Entry-Points: ESP32 System Information</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agv_rest_api_esp32.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-points-esp32-system-information">
+<h1>Entry-Points: ESP32 System Information<a class="headerlink" href="#entry-points-esp32-system-information" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
+</div>
+<p><strong>EntryPoints:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-api-agv-info-esp32-chip"><span class="std std-ref">GET /api/agv/info/esp32/chip</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-agv-info-esp32-network"><span class="std std-ref">GET /api/agv/info/esp32/network</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-agv-info-esp32-partitions"><span class="std std-ref">GET /api/agv/info/esp32/partitions</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-agv-info-esp32-tasks"><span class="std std-ref">GET /api/agv/info/esp32/tasks</span></a></p></li>
+</ul>
+<section id="esp32-chip-system-information-api-agv-info-esp32-chip">
+<span id="get-api-agv-info-esp32-chip"></span><h2>ESP32 Chip &amp; System Information - /api/agv/info/esp32/chip<a class="headerlink" href="#esp32-chip-system-information-api-agv-info-esp32-chip" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-info-esp32-chip">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/info/esp32/chip</span></span><a class="headerlink" href="#get--api-agv-info-esp32-chip" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Detaillierte Informationen zum ESP32 Chip, CPU, Flash und Speicher.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – OK</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Liefert umfassende Systeminformationen des ESP32, einschließlich Chip-Modell, CPU-Frequenz,
+Heap-Speicher und Flash-Konfiguration.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;free_heap_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">102456</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;min_free_heap_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45678</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;max_alloc_heap_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">512000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;total_heap&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">327680</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;frequency_mhz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;core_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;flash&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;chip_size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4194304</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chip_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chip_speed_hz&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40000000</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;chip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;revision&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ESP32&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;sdk_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v4.4.2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;chip_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aabbccddee&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;reset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;reason_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;reason_desc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Power-on reset&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<p><strong>``memory``</strong> – Heap-Speicher-Informationen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">free_heap_bytes</span></code> <em>(integer)</em> – Aktuell freier Heap-Speicher in Bytes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_free_heap_bytes</span></code> <em>(integer)</em> – Minimale verfügbare Heap-Größe seit dem Boot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_alloc_heap_bytes</span></code> <em>(integer)</em> – Maximale Größe für eine einzelne Heap-Allokation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_heap</span></code> <em>(integer)</em> – Gesamte Heap-Größe in Bytes.</p></li>
+</ul>
+<p><strong>``cpu``</strong> – CPU-Informationen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">frequency_mhz</span></code> <em>(integer)</em> – aktuelle CPU-Frequenz in MHz.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">core_count</span></code> <em>(integer)</em> – Anzahl der CPU-Kerne.</p></li>
+</ul>
+<p><strong>``flash``</strong> – Flash-Speicher-Informationen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_size_bytes</span></code> <em>(integer)</em> – Gesamtgröße des Flash-Chips in Bytes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_mode</span></code> <em>(integer)</em> – Flash-Betriebsmodus (0=QIO, 1=QOUT, 2=DIO, 3=DOUT).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_speed_hz</span></code> <em>(integer)</em> – Flash-Lesegeschwindigkeit in Hertz.</p></li>
+</ul>
+<p><strong>``chip``</strong> – Chip-Identifikationsinformationen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">revision</span></code> <em>(integer)</em> – Chip-Revisionsversion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model</span></code> <em>(string)</em> – Chip-Modellname (z.B. <code class="docutils literal notranslate"><span class="pre">&quot;ESP32&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ESP32-S3&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sdk_version</span></code> <em>(string)</em> – ESP-IDF SDK-Versionsnummer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chip_id</span></code> <em>(string)</em> – Eindeutige Chip-ID (Hexadezimalformat).</p></li>
+</ul>
+<p><strong>``reset``</strong> – Reset-Grund:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reason_id</span></code> <em>(integer)</em> – Numerischer Reset-Grund-Code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reason_desc</span></code> <em>(string)</em> – Menschlich lesbare Beschreibung des Reset-Grundes.</p></li>
+</ul>
+</section>
+<section id="network-information-api-agv-info-esp32-network">
+<span id="get-api-agv-info-esp32-network"></span><h2>Network Information - /api/agv/info/esp32/network<a class="headerlink" href="#network-information-api-agv-info-esp32-network" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-info-esp32-network">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/info/esp32/network</span></span><a class="headerlink" href="#get--api-agv-info-esp32-network" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Netzwerkkonfiguration und MAC-Adressen.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – OK</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Liefert Netzwerkeinstellungen einschließlich MAC-Adressen für WiFi und Bluetooth sowie
+IP-Konfiguration.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;wifi_mac&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AA:BB:CC:DD:EE:FF&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bt_mac&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AA:BB:CC:DD:EE:00&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AGV-Device&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.100&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subnet_mask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;gateway&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dns_server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data``)</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wifi_mac</span></code> <em>(string)</em> – MAC-Adresse des WiFi-Adapters (Format: <code class="docutils literal notranslate"><span class="pre">AA:BB:CC:DD:EE:FF</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bt_mac</span></code> <em>(string)</em> – MAC-Adresse des Bluetooth-Adapters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hostname</span></code> <em>(string)</em> – Netzwerk-Hostname des Geräts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_address</span></code> <em>(string)</em> – Aktuelle IPv4-Adresse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subnet_mask</span></code> <em>(string)</em> – Subnetzmaske.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gateway</span></code> <em>(string)</em> – Standard-Gateway-Adresse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dns_server</span></code> <em>(string)</em> – Primärer DNS-Server.</p></li>
+</ul>
+</section>
+<section id="partition-information-api-agv-info-esp32-partitions">
+<span id="get-api-agv-info-esp32-partitions"></span><h2>Partition Information - /api/agv/info/esp32/partitions<a class="headerlink" href="#partition-information-api-agv-info-esp32-partitions" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-info-esp32-partitions">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/info/esp32/partitions</span></span><a class="headerlink" href="#get--api-agv-info-esp32-partitions" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Übersicht der Partitionstabelle und deren Größen.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – OK</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Liefert detaillierte Informationen zur Partitionstabelle des ESP32, einschließlich
+Partitionstypen, Adressen und Verschlüsselungsstatus.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;partitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nvs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NVS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00009000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0000d000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16384</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00004000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otadata&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTA&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0000d000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0000f000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00002000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;app0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;APP&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTA_0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00010000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x00200000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1966080</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;size_hex_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x001f0000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder (``data.partitions``)</strong></p>
+<p>Jede Partition ist ein Objekt mit:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> <em>(string)</em> – Partitionsbezeichnung (z.B. <code class="docutils literal notranslate"><span class="pre">&quot;nvs&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;app0&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;spiffs&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> <em>(string)</em> – Partitionstyp (<code class="docutils literal notranslate"><span class="pre">&quot;APP&quot;</span></code> für Anwendungen, <code class="docutils literal notranslate"><span class="pre">&quot;DATA&quot;</span></code> für Daten).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subtype</span></code> <em>(string)</em> – Untertyp der Partition (z.B. <code class="docutils literal notranslate"><span class="pre">&quot;OTA_0&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;NVS&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;SPIFFS&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address_begin</span></code> <em>(string)</em> – Startadresse im Hexadezimalformat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address_end</span></code> <em>(string)</em> – Endadresse im Hexadezimalformat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_bytes</span></code> <em>(integer)</em> – Partitionsgröße in Bytes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_hex_bytes</span></code> <em>(string)</em> – Partitionsgröße in Hexadezimalformat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypted</span></code> <em>(string)</em> – Verschlüsselungsstatus (<code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>).</p></li>
+</ul>
+</section>
+<section id="freertos-task-information-api-agv-info-esp32-tasks">
+<span id="get-api-agv-info-esp32-tasks"></span><h2>FreeRTOS Task Information - /api/agv/info/esp32/tasks<a class="headerlink" href="#freertos-task-information-api-agv-info-esp32-tasks" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-agv-info-esp32-tasks">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/info/esp32/tasks</span></span><a class="headerlink" href="#get--api-agv-info-esp32-tasks" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Informationen über aktuelle FreeRTOS Tasks und Reset-Grund.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – OK</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Liefert Informationen über aktuell laufende FreeRTOS-Tasks und den Reset-Grund des Systems.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">  </span><span class="nt">&quot;reset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;reset_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reset.reset_reason</span></code> <em>(integer)</em> – Numerischer Code des letzten Reset-Grundes.</p></li>
+</ul>
+<p><strong>Hinweis:</strong>
+Die Task-Detailinformationen (Taskname, Stack-Größe, Priorität) sind zurzeit
+kommentiert und können bei Bedarf aktiviert werden.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agv_rest_api_i2c.html" class="btn btn-neutral float-left" title="Entry-Points: I2C Scanner" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agv_rest_api_info.html" class="btn btn-neutral float-right" title="Entry-Points: Info" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Robert Berger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
