@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entry-Points: NVS (Non-Volatile Storage) &mdash; AGV-RestAPI-Doku 1.1.x documentation</title>
+  <title>Entry-Points: I2C Scanner &mdash; AGV-RestAPI-Doku 1.1.x documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Entry-Points: Line Follower" href="agv_rest_api_linefollower.html" />
-    <link rel="prev" title="Entry-Points: WhereIsMyAGV" href="agv_rest_api_wima.html" /> 
+    <link rel="next" title="Entry-Points: Info" href="agv_rest_api_info.html" />
+    <link rel="prev" title="Entry-Points: Buzzer" href="agv_rest_api_buzzer.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -68,8 +68,8 @@
 <li class="toctree-l2"><a class="reference internal" href="agv_rest_api_buzzer.html#beep-n-times-api-agv-buzzer-beepntimes">Beep N-times - /api/agv/buzzer/beepNTimes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_i2c.html">Entry-Points: I2C Scanner</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_i2c.html#i2c-device-scanner-api-agv-i2c-scan">I2C Device Scanner - /api/agv/i2c/scan</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: I2C Scanner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#i2c-device-scanner-api-agv-i2c-scan">I2C Device Scanner - /api/agv/i2c/scan</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="agv_rest_api_info.html">Entry-Points: Info</a><ul>
@@ -125,9 +125,9 @@
 <li class="toctree-l2"><a class="reference internal" href="agv_rest_api_wima.html#whereismyagv-settings-api-agv-whereismyagv-settings">WhereIsMyAGV Settings – /api/agv/whereIsMyAGV/settings</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Entry-Points: NVS (Non-Volatile Storage)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#list-nvs-namespaces-api-nve-namespaces">List NVS Namespaces – /api/nve/namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list-keys-and-values-api-nve-listkeysandvalues">List Keys and Values – /api/nve/listKeysAndValues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agv_rest_api_nve.html">Entry-Points: NVS (Non-Volatile Storage)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-nvs-namespaces-api-nve-namespaces">List NVS Namespaces – /api/nve/namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agv_rest_api_nve.html#list-keys-and-values-api-nve-listkeysandvalues">List Keys and Values – /api/nve/listKeysAndValues</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="agv_rest_api_linefollower.html">Entry-Points: Line Follower</a><ul>
@@ -153,9 +153,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Entry-Points: NVS (Non-Volatile Storage)</li>
+      <li class="breadcrumb-item active">Entry-Points: I2C Scanner</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/agv_rest_api_nve.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/agv_rest_api_i2c.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -163,25 +163,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="entry-points-nvs-non-volatile-storage">
-<h1>Entry-Points: NVS (Non-Volatile Storage)<a class="headerlink" href="#entry-points-nvs-non-volatile-storage" title="Link to this heading"></a></h1>
+  <section id="entry-points-i2c-scanner">
+<h1>Entry-Points: I2C Scanner<a class="headerlink" href="#entry-points-i2c-scanner" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Eine Gesamtübersicht der API findest du unter <a class="reference internal" href="index.html"><span class="doc">AGV-Doku – Übersicht</span></a>.</p>
 </div>
 <p><strong>EntryPoints:</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#get-api-nve-namespaces"><span class="std std-ref">GET /api/nve/namespaces</span></a></p></li>
-<li><p><a class="reference internal" href="#post-api-nve-listkeysandvalues"><span class="std std-ref">POST /api/nve/listKeysAndValues</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-agv-i2c-scan"><span class="std std-ref">GET /api/agv/i2c/scan</span></a></p></li>
 </ul>
-<section id="list-nvs-namespaces-api-nve-namespaces">
-<span id="get-api-nve-namespaces"></span><h2>List NVS Namespaces – /api/nve/namespaces<a class="headerlink" href="#list-nvs-namespaces-api-nve-namespaces" title="Link to this heading"></a></h2>
+<section id="i2c-device-scanner-api-agv-i2c-scan">
+<span id="get-api-agv-i2c-scan"></span><h2>I2C Device Scanner - /api/agv/i2c/scan<a class="headerlink" href="#i2c-device-scanner-api-agv-i2c-scan" title="Link to this heading"></a></h2>
 <dl class="http get">
-<dt class="sig sig-object http" id="get--api-nve-namespaces">
-<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/nve/namespaces</span></span><a class="headerlink" href="#get--api-nve-namespaces" title="Link to this definition"></a></dt>
+<dt class="sig sig-object http" id="get--api-agv-i2c-scan">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/agv/i2c/scan</span></span><a class="headerlink" href="#get--api-agv-i2c-scan" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Synopsis<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Gibt alle in der NVS-Partition vorhandenen Namespaces zurück.</p>
+<dd class="field-odd"><p>Scannt den I2C-Bus und liefert eine Liste aller angeschlossenen Geräte.</p>
 </dd>
 <dt class="field-even">Request Headers<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -195,125 +194,69 @@
 </dd>
 <dt class="field-even">Status Codes<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Erfolgreich.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Zugriff verweigert.</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – OK</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <p><strong>Beschreibung:</strong>
-Liest die NVS-Partition des ESP32 aus und listet alle vorhandenen Namespaces (z. B. Module, Konfigurationsbereiche) auf.</p>
+Führt einen Scan des I2C-Busses durch und gibt alle erkannten Geräte zurück.
+Der Scanner testet die Adressen 0x01 bis 0x7E und kann bis zu 4 Geräte speichern.</p>
 <p><strong>Response – Success (200):</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;namespaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;wifi&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;system&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;agv_settings&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;sensors&quot;</span>
+<span class="w">    </span><span class="nt">&quot;devicesFound&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_dec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_hex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x20&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_dec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;address_hex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x68&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Felder (``data``):</strong></p>
+<p><strong>Felder (``data``)</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">namespaces</span></code> <em>(array of string)</em> – Liste aller vorhandenen Namespace-Namen in der NVS-Partition.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">devicesFound</span></code> <em>(integer)</em> – Anzahl der auf dem Bus erkannten Geräte (0–4).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">devices</span></code> <em>(array)</em> – Liste der erkannten Geräte mit folgenden Eigenschaften:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> <em>(integer)</em> – Laufende Nummer des Geräts (1-basiert).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address_dec</span></code> <em>(integer)</em> – I2C-Adresse in dezimaler Notation (1–126).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address_hex</span></code> <em>(string)</em> – I2C-Adresse in hexadezimaler Notation (z.B. <code class="docutils literal notranslate"><span class="pre">&quot;0x20&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> <em>(string)</em> – Name/Beschreibung des Geräts (derzeit <code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code>; für zukünftige Erweiterung reserviert).</p></li>
 </ul>
-</section>
-<section id="list-keys-and-values-api-nve-listkeysandvalues">
-<span id="post-api-nve-listkeysandvalues"></span><h2>List Keys and Values – /api/nve/listKeysAndValues<a class="headerlink" href="#list-keys-and-values-api-nve-listkeysandvalues" title="Link to this heading"></a></h2>
-<dl class="http post">
-<dt class="sig sig-object http" id="post--api-nve-listKeysAndValues">
-<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/nve/listKeysAndValues</span></span><a class="headerlink" href="#post--api-nve-listKeysAndValues" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Listet alle Schlüssel und deren Werte innerhalb eines gegebenen NVS-Namespaces.</p>
-</dd>
-<dt class="field-even">Request Headers<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</li>
 </ul>
-</dd>
-<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
-</ul>
-</dd>
-<dt class="field-even">JSON Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>namespace</strong> (<em>string</em>) – Name des auszulesenden Namespaces.</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Erfolgreich.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Ungültiger Wert/Typ.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Zugriff verweigert.</p></li>
-<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a></span> – Interner Fehler beim Zugriff auf NVS.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<p><strong>Beschreibung:</strong>
-Öffnet den angegebenen NVS-Namespace und liest alle enthaltenen Schlüssel, Datentypen und Werte aus.
-Unterstützt werden alle NVS-Typen (z. B. <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">blob</span></code>).</p>
-<p><strong>Request Body – JSON:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agv&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>Response – Success (200):</strong></p>
+<p><strong>Response – No Devices Found (200):</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wifi&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssid&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyWiFi&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pw&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345678&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;channel&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int32&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;devicesFound&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Felder (``data``):</strong></p>
+<p><strong>Technische Details:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">namespace</span></code> <em>(string)</em> – Der angefragte Namespace.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code> <em>(array of object)</em> – Schlüssel-Wert-Paare des Namespaces.
-- <code class="docutils literal notranslate"><span class="pre">key</span></code> <em>(string)</em> – Schlüsselname
-- <code class="docutils literal notranslate"><span class="pre">typeId</span></code> <em>(int)</em> – NVS-interne Typ-ID
-- <code class="docutils literal notranslate"><span class="pre">typeName</span></code> <em>(string)</em> – Menschlich lesbarer Typ (z. B. <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">blob</span></code>)
-- <code class="docutils literal notranslate"><span class="pre">value</span></code> <em>(mixed)</em> – Wert (je nach Typ Zahl, String oder Byte-Array)</p></li>
+<li><p>Die Scan-Funktion prüft die Präsenz von Geräten über <code class="docutils literal notranslate"><span class="pre">Wire.beginTransmission()</span></code> und <code class="docutils literal notranslate"><span class="pre">Wire.endTransmission()</span></code>.</p></li>
+<li><p>Maximal 4 Geräte werden in der Antwort aufgelistet (<code class="docutils literal notranslate"><span class="pre">I2C_ADDRESSBUFFERSIZE</span> <span class="pre">=</span> <span class="pre">4</span></code>).</p></li>
+<li><p>Der Scan berücksichtigt nur Standard-Adressen (0x01–0x7E); reservierte Adressen (0x00, 0x7F) werden ignoriert.</p></li>
+<li><p>Weitere Details zur Geräte-Identifikation (z.B. Gerätetypenerkennung) sind für zukünftige Versionen geplant.</p></li>
 </ul>
-<p><strong>Response – Error (400 Bad Request):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid Value&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The &#39;namespace&#39; key must be of type string.&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>Response – Error (500 Internal Server Error):</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;shortDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NVS Error&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longDesc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Failed to open NVS namespace: wifi&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -321,8 +264,8 @@ Unterstützt werden alle NVS-Typen (z. B. <code class="docutils literal notransl
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="agv_rest_api_wima.html" class="btn btn-neutral float-left" title="Entry-Points: WhereIsMyAGV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="agv_rest_api_linefollower.html" class="btn btn-neutral float-right" title="Entry-Points: Line Follower" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="agv_rest_api_buzzer.html" class="btn btn-neutral float-left" title="Entry-Points: Buzzer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agv_rest_api_info.html" class="btn btn-neutral float-right" title="Entry-Points: Info" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
