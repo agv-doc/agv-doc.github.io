@@ -23,7 +23,6 @@ Beispielanfragen und -antworten.
    agv_rest_api_common
    agv_rest_api_buzzer
    agv_rest_api_i2c
-   agv_rest_api_esp32
    agv_rest_api_info
    agv_rest_api_stepper
    agv_rest_api_pwm

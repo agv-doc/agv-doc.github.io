@@ -77,6 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#esp32-chip-info-api-info-esp32-chip">ESP32 Chip Info – /api/info/esp32/chip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#esp32-network-info-api-info-esp32-network">ESP32 Network Info – /api/info/esp32/network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#esp32-partition-info-api-info-esp32-partitions">ESP32 Partition Info – /api/info/esp32/partitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esp32-tasks-information-api-info-esp32-tasks">ESP32 Tasks Information – /api/info/esp32/tasks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="agv_rest_api_stepper.html">Entry-Points: Stepper</a><ul>
@@ -175,6 +176,7 @@
 <li><p><a class="reference internal" href="#get-api-info-esp32-chip"><span class="std std-ref">GET /api/info/esp32/chip</span></a></p></li>
 <li><p><a class="reference internal" href="#get-api-info-esp32-network"><span class="std std-ref">GET /api/info/esp32/network</span></a></p></li>
 <li><p><a class="reference internal" href="#get-api-info-esp32-partitions"><span class="std std-ref">GET /api/info/esp32/partitions</span></a></p></li>
+<li><p><a class="reference internal" href="#get-api-info-esp32-tasks"><span class="std std-ref">GET /api/info/esp32/tasks</span></a></p></li>
 </ul>
 <section id="agv-info-api-info-agv">
 <span id="get-api-info-agv"></span><h2>AGV Info – /api/info/agv<a class="headerlink" href="#agv-info-api-info-agv" title="Link to this heading"></a></h2>
@@ -549,6 +551,64 @@ Jeder Eintrag enthält folgende Felder:</p>
 </div></blockquote>
 </li>
 </ul>
+</section>
+<section id="esp32-tasks-information-api-info-esp32-tasks">
+<span id="get-api-info-esp32-tasks"></span><h2>ESP32 Tasks Information – /api/info/esp32/tasks<a class="headerlink" href="#esp32-tasks-information-api-info-esp32-tasks" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-info-esp32-tasks">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/info/esp32/tasks</span></span><a class="headerlink" href="#get--api-info-esp32-tasks" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Synopsis<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liefert FreeRTOS-Task- und Reset-Informationen des ESP32.</p>
+</dd>
+<dt class="field-even">Request Headers<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2">Accept</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response Headers<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">Content-Type</a></span> – application/json</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Informationen erfolgreich abgerufen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Beschreibung:</strong>
+Dieser Endpunkt liefert Informationen über FreeRTOS-Tasks und den letzten Reset-Grund des ESP32.</p>
+<p><strong>Response – Success (200):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">  </span><span class="nt">&quot;reset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;reset_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Felder</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reset.reset_reason</span></code> <em>(integer)</em> – Numerischer Code des letzten Reset-Grundes.</p></li>
+</ul>
+<p><strong>Reset-Gründe-Referenz:</strong></p>
+<p>Die möglichen Reset-Grund-Codes sind:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> – Power-on Reset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> – External Reset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> – Watchdog Reset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> – Software Reset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> – RTC Reset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span></code> – Deep Sleep Reset</p></li>
+</ul>
+<p><strong>Hinweis:</strong>
+Die detaillierten Task-Informationen (Taskname, Stack-Größe, Priorität) sind derzeit nicht aktiviert
+und können bei Bedarf im Backend freigeschaltet werden.</p>
 </section>
 </section>
 
