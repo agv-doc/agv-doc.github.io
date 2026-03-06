@@ -7,6 +7,7 @@ Entry-Points: Line Follower
 **EntryPoints:**
 
 - :ref:`GET /api/agv/linefollower/settings <get-api-agv-line-follower-settings>`
+- :ref:`GET /api/agv/linefollower/info <get-api-agv-line-follower-info>`
 - :ref:`GET /api/agv/linefollower/sensors <get-api-agv-line-follower-sensors>`
 - :ref:`POST /api/agv/linefollower/enable <post-api-agv-line-follower-enable>`
 - :ref:`POST /api/agv/linefollower/setSampleDeltaTime <post-api-agv-line-follower-setSampleDeltaTime>`
@@ -44,6 +45,41 @@ Liefert die aktuellen Einstellungen des Line Follower-Moduls.
 
 - ``enabled`` *(bool)* – Line Follower-Modul aktiv/inaktiv.
 - ``sampleDeltaTime`` *(int)* – Delta Time in Millisekunden.
+
+.. _get-api-agv-line-follower-info:
+
+Line Follower Info – /api/agv/linefollower/info
+------------------------------------------------
+
+.. http:get:: /api/agv/linefollower/info
+
+   :synopsis: Liefert statische Metadaten zum Line-Follower-Sensor.
+   :reqheader Accept: application/json
+   :resheader Content-Type: application/json
+   :statuscode 200: Info erfolgreich abgerufen.
+
+**Beschreibung:**
+Liefert Sensor-Metadaten wie Name, I2C-Adresse und Anzahl der verfügbaren Sensoren.
+
+**Response – Success (200):**
+
+.. code-block:: json
+
+    {
+      "code": 200,
+      "status": "success",
+      "data": {
+        "name": "Line Follower",
+        "i2c_address": "0x11",
+        "sensor_count": 5
+      }
+    }
+
+**Felder (``data``):**
+
+- ``name`` *(string)* – Anzeigename des Sensors.
+- ``i2c_address`` *(string)* – I2C-Adresse im Hex-Format (z.B. ``"0x11"``).
+- ``sensor_count`` *(int)* – Anzahl der Line-Follower-Eingangskanaele.
 
 .. _get-api-agv-line-follower-sensors:
 
